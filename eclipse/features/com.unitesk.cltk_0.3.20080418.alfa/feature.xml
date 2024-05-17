@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.unitesk.cltk"
+      label="CLTK"
+      version="0.3.20080418.alfa"
+      provider-name="UniTESK Lab, ISP RAS"
+      plugin="com.unitesk.cltk.plugin">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <plugin
+         id="com.unitesk.cltk.core"
+         download-size="0"
+         install-size="0"
+         version="0.3.20080418.alfa"
+         unpack="false"/>
+
+   <plugin
+         id="com.unitesk.cltk.lib"
+         download-size="0"
+         install-size="0"
+         version="0.3.20080305"/>
+
+   <plugin
+         id="com.unitesk.cltk.plugin"
+         download-size="0"
+         install-size="0"
+         version="0.3.20080418.alfa"/>
+
+   <plugin
+         id="com.unitesk.cltk.ui"
+         download-size="0"
+         install-size="0"
+         version="0.3.20080418.alfa"
+         unpack="false"/>
+
+</feature>

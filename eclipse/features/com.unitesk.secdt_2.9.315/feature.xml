@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.unitesk.secdt"
+      label="%label"
+      version="2.9.315"
+      provider-name="%provider">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license>
+      %license
+   </license>
+
+   <url>
+      <discovery label="%urldescription" url="http://www.unitesk.com/content/category/7/16/34/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.cdt.managedbuilder.core"/>
+      <import plugin="org.eclipse.cdt.managedbuilder.gnu.ui"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.ui.views"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.cdt.core"/>
+      <import plugin="org.eclipse.ui.console"/>
+      <import plugin="org.eclipse.cdt.debug.ui"/>
+   </requires>
+
+   <plugin
+         id="com.unitesk.secdt"
+         download-size="0"
+         install-size="0"
+         version="2.9.315"
+         unpack="false"/>
+
+   <plugin
+         id="com.unitesk.secdt.core"
+         download-size="0"
+         install-size="0"
+         version="0.1.20080305"
+         unpack="false"/>
+
+   <plugin
+         id="com.unitesk.secdt.lib"
+         download-size="0"
+         install-size="0"
+         version="2.9.315"/>
+
+   <plugin
+         id="com.unitesk.secdt.ui"
+         download-size="0"
+         install-size="0"
+         version="0.1.20080305"
+         unpack="false"/>
+
+</feature>

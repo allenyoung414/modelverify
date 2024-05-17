@@ -1,0 +1,46 @@
+/* 
+ * File: account_mediator.sec
+ * Description: 
+ *       This file contains definitions of mediator functions
+ *       of the simple account system.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#include "account_mediator.seh"
+
+
+/*
+ * The mediator of deposit_spec(AccountModel*,int) specification function.
+ *
+ * It states that deposit_spec(AccountModel*,int) function specifies 
+ * the behavior of deposit(Account*,int) function.
+ */ 
+mediator deposit_media for specification void deposit_spec (AccountModel *acct, int sum)
+  reads   sum
+  updates acct->balance
+{
+  call {
+    deposit (acct, sum);
+  }
+}
+
+
+/*
+ * The mediator of withdraw_spec(AccountModel*,int) specification function.
+ *
+ * It states that withdraw_spec(AccountModel*,int) function specifies 
+ * the behavior of withdraw(Account*,int) function.
+ */ 
+mediator withdraw_media for specification int withdraw_spec (AccountModel *acct, int sum)
+  reads   sum
+  updates acct->balance
+{
+  call {
+    return withdraw (acct, sum);
+  }
+}

@@ -1,0 +1,20 @@
+/* 
+ * File: pqueue_main.sec
+ * Description: 
+ *       This file contains the main function of the test.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#include "pqueue_scenario.seh"
+
+int main (int argc, char** argv) 
+{
+  /** start of the test scenario **/
+  pqueue_scenario(argc, argv);
+  return 0;
+}

@@ -1,0 +1,24 @@
+/* 
+ * File: account_scenario.seh
+ * Description: 
+ *       This file contains a declaration of a test scenario 
+ *       for the simple account system testing.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#ifndef __ACCOUNT_SCENARIO_H__
+#define __ACCOUNT_SCENARIO_H__
+
+
+/*
+ * The declaration of 'account_scenario' test scenario.
+ */ 
+scenario dfsm account_scenario;
+
+
+#endif /* __ACCOUNT_SCENARIO_H__ */

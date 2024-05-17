@@ -1,0 +1,36 @@
+/* 
+ * File: pqueue_media.seh
+ * Description: 
+ *       This file contains a declaration of mediator functions
+ *       of the queue with priorities.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#ifndef __PQUEUE_MEDIA_SEH__
+#define __PQUEUE_MEDIA_SEH__
+
+#include "pqueue_model.seh"
+
+mediator enq_media for specification void enq_spec(Item item)
+     reads   item
+     reads   high
+     updates low
+;
+
+mediator enqp_media for specification void enqp_spec(Item item)
+     reads   item
+     updates high
+     reads   low
+;
+
+mediator deq_media for specification void *deq_spec(void)
+     updates high
+     updates low
+;
+
+#endif

@@ -1,0 +1,3745 @@
+# 1 "pqueue_scenario.sec"
+# 1 "/home/qrs/opt/modelverify/examples/pqueue//"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "/home/qrs/opt/modelverify/include/ts/ts.h" 1
+# 34 "/home/qrs/opt/modelverify/include/ts/ts.h"
+#pragma SEC force_use_start
+
+
+# 1 "/home/qrs/opt/modelverify/include/utils/sec.h" 1
+# 38 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+
+# 1 "/usr/include/string.h" 1 3 4
+# 25 "/usr/include/string.h" 3 4
+# 1 "/usr/include/features.h" 1 3 4
+# 367 "/usr/include/features.h" 3 4
+# 1 "/usr/include/i386-linux-gnu/sys/cdefs.h" 1 3 4
+# 410 "/usr/include/i386-linux-gnu/sys/cdefs.h" 3 4
+# 1 "/usr/include/i386-linux-gnu/bits/wordsize.h" 1 3 4
+# 411 "/usr/include/i386-linux-gnu/sys/cdefs.h" 2 3 4
+# 368 "/usr/include/features.h" 2 3 4
+# 391 "/usr/include/features.h" 3 4
+# 1 "/usr/include/i386-linux-gnu/gnu/stubs.h" 1 3 4
+
+
+
+
+
+
+# 1 "/usr/include/i386-linux-gnu/gnu/stubs-32.h" 1 3 4
+# 8 "/usr/include/i386-linux-gnu/gnu/stubs.h" 2 3 4
+# 392 "/usr/include/features.h" 2 3 4
+# 26 "/usr/include/string.h" 2 3 4
+
+
+
+
+
+
+# 1 "/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h" 1 3 4
+# 216 "/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h" 3 4
+
+# 216 "/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h" 3 4
+typedef unsigned int size_t;
+# 33 "/usr/include/string.h" 2 3 4
+
+
+
+
+
+
+
+
+
+extern void *memcpy (void *
+# 42 "/usr/include/string.h"
+                          __restrict__ 
+# 42 "/usr/include/string.h" 3 4
+                                     __dest, const void *
+# 42 "/usr/include/string.h"
+                                                         __restrict__ 
+# 42 "/usr/include/string.h" 3 4
+                                                                    __src,
+       size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern void *memmove (void *__dest, const void *__src, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+
+# 60 "/usr/include/string.h" 3 4
+
+
+extern void *memset (void *__s, int __c, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+extern int memcmp (const void *__s1, const void *__s2, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+# 92 "/usr/include/string.h" 3 4
+extern void *memchr (const void *__s, int __c, size_t __n)
+      __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+# 123 "/usr/include/string.h" 3 4
+
+
+extern char *strcpy (char *
+# 125 "/usr/include/string.h"
+                          __restrict__ 
+# 125 "/usr/include/string.h" 3 4
+                                     __dest, const char *
+# 125 "/usr/include/string.h"
+                                                         __restrict__ 
+# 125 "/usr/include/string.h" 3 4
+                                                                    __src)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+
+extern char *strncpy (char *
+# 128 "/usr/include/string.h"
+                           __restrict__ 
+# 128 "/usr/include/string.h" 3 4
+                                      __dest,
+        const char *
+# 129 "/usr/include/string.h"
+                   __restrict__ 
+# 129 "/usr/include/string.h" 3 4
+                              __src, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern char *strcat (char *
+# 133 "/usr/include/string.h"
+                          __restrict__ 
+# 133 "/usr/include/string.h" 3 4
+                                     __dest, const char *
+# 133 "/usr/include/string.h"
+                                                         __restrict__ 
+# 133 "/usr/include/string.h" 3 4
+                                                                    __src)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+
+extern char *strncat (char *
+# 136 "/usr/include/string.h"
+                           __restrict__ 
+# 136 "/usr/include/string.h" 3 4
+                                      __dest, const char *
+# 136 "/usr/include/string.h"
+                                                          __restrict__ 
+# 136 "/usr/include/string.h" 3 4
+                                                                     __src,
+        size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int strcmp (const char *__s1, const char *__s2)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+extern int strncmp (const char *__s1, const char *__s2, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern int strcoll (const char *__s1, const char *__s2)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+extern size_t strxfrm (char *
+# 150 "/usr/include/string.h"
+                            __restrict__ 
+# 150 "/usr/include/string.h" 3 4
+                                       __dest,
+         const char *
+# 151 "/usr/include/string.h"
+                    __restrict__ 
+# 151 "/usr/include/string.h" 3 4
+                               __src, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+
+# 206 "/usr/include/string.h" 3 4
+
+# 231 "/usr/include/string.h" 3 4
+extern char *strchr (const char *__s, int __c)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+# 258 "/usr/include/string.h" 3 4
+extern char *strrchr (const char *__s, int __c)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+
+# 277 "/usr/include/string.h" 3 4
+
+
+
+extern size_t strcspn (const char *__s, const char *__reject)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+extern size_t strspn (const char *__s, const char *__accept)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+# 310 "/usr/include/string.h" 3 4
+extern char *strpbrk (const char *__s, const char *__accept)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+# 337 "/usr/include/string.h" 3 4
+extern char *strstr (const char *__haystack, const char *__needle)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1, 2)));
+
+
+
+
+extern char *strtok (char *
+# 343 "/usr/include/string.h"
+                          __restrict__ 
+# 343 "/usr/include/string.h" 3 4
+                                     __s, const char *
+# 343 "/usr/include/string.h"
+                                                      __restrict__ 
+# 343 "/usr/include/string.h" 3 4
+                                                                 __delim)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2)));
+
+
+
+
+extern char *__strtok_r (char *
+# 349 "/usr/include/string.h"
+                              __restrict__ 
+# 349 "/usr/include/string.h" 3 4
+                                         __s,
+    const char *
+# 350 "/usr/include/string.h"
+               __restrict__ 
+# 350 "/usr/include/string.h" 3 4
+                          __delim,
+    char **
+# 351 "/usr/include/string.h"
+          __restrict__ 
+# 351 "/usr/include/string.h" 3 4
+                     __save_ptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (2, 3)));
+# 392 "/usr/include/string.h" 3 4
+
+
+extern size_t strlen (const char *__s)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1)));
+
+# 406 "/usr/include/string.h" 3 4
+
+
+extern char *strerror (int __errnum) __attribute__ ((__nothrow__ , __leaf__));
+
+# 446 "/usr/include/string.h" 3 4
+extern void __bzero (void *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+# 658 "/usr/include/string.h" 3 4
+
+# 40 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+
+# 1 "/home/qrs/opt/modelverify/include/utils/boolean.h" 1
+# 30 "/home/qrs/opt/modelverify/include/utils/boolean.h"
+  
+# 30 "/home/qrs/opt/modelverify/include/utils/boolean.h"
+ typedef char bool;
+# 42 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+# 1 "/home/qrs/opt/modelverify/include/utils/assertion.h" 1
+# 25 "/home/qrs/opt/modelverify/include/utils/assertion.h"
+# 1 "/usr/include/stdio.h" 1 3 4
+# 29 "/usr/include/stdio.h" 3 4
+
+
+
+
+# 1 "/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h" 1 3 4
+# 34 "/usr/include/stdio.h" 2 3 4
+
+# 1 "/usr/include/i386-linux-gnu/bits/types.h" 1 3 4
+# 27 "/usr/include/i386-linux-gnu/bits/types.h" 3 4
+# 1 "/usr/include/i386-linux-gnu/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/i386-linux-gnu/bits/types.h" 2 3 4
+
+
+
+# 30 "/usr/include/i386-linux-gnu/bits/types.h" 3 4
+typedef unsigned char __u_char;
+typedef unsigned short int __u_short;
+typedef unsigned int __u_int;
+typedef unsigned long int __u_long;
+
+
+typedef signed char __int8_t;
+typedef unsigned char __uint8_t;
+typedef signed short int __int16_t;
+typedef unsigned short int __uint16_t;
+typedef signed int __int32_t;
+typedef unsigned int __uint32_t;
+
+
+
+
+__extension__ typedef signed long long int __int64_t;
+__extension__ typedef unsigned long long int __uint64_t;
+
+
+
+
+
+
+
+__extension__ typedef long long int __quad_t;
+__extension__ typedef unsigned long long int __u_quad_t;
+# 121 "/usr/include/i386-linux-gnu/bits/types.h" 3 4
+# 1 "/usr/include/i386-linux-gnu/bits/typesizes.h" 1 3 4
+# 122 "/usr/include/i386-linux-gnu/bits/types.h" 2 3 4
+
+
+__extension__ typedef __u_quad_t __dev_t;
+__extension__ typedef unsigned int __uid_t;
+__extension__ typedef unsigned int __gid_t;
+__extension__ typedef unsigned long int __ino_t;
+__extension__ typedef __u_quad_t __ino64_t;
+__extension__ typedef unsigned int __mode_t;
+__extension__ typedef unsigned int __nlink_t;
+__extension__ typedef long int __off_t;
+__extension__ typedef __quad_t __off64_t;
+__extension__ typedef int __pid_t;
+__extension__ typedef struct { int __val[2]; } __fsid_t;
+__extension__ typedef long int __clock_t;
+__extension__ typedef unsigned long int __rlim_t;
+__extension__ typedef __u_quad_t __rlim64_t;
+__extension__ typedef unsigned int __id_t;
+__extension__ typedef long int __time_t;
+__extension__ typedef unsigned int __useconds_t;
+__extension__ typedef long int __suseconds_t;
+
+__extension__ typedef int __daddr_t;
+__extension__ typedef int __key_t;
+
+
+__extension__ typedef int __clockid_t;
+
+
+__extension__ typedef void * __timer_t;
+
+
+__extension__ typedef long int __blksize_t;
+
+
+
+
+__extension__ typedef long int __blkcnt_t;
+__extension__ typedef __quad_t __blkcnt64_t;
+
+
+__extension__ typedef unsigned long int __fsblkcnt_t;
+__extension__ typedef __u_quad_t __fsblkcnt64_t;
+
+
+__extension__ typedef unsigned long int __fsfilcnt_t;
+__extension__ typedef __u_quad_t __fsfilcnt64_t;
+
+
+__extension__ typedef int __fsword_t;
+
+__extension__ typedef int __ssize_t;
+
+
+__extension__ typedef long int __syscall_slong_t;
+
+__extension__ typedef unsigned long int __syscall_ulong_t;
+
+
+
+typedef __off64_t __loff_t;
+typedef __quad_t *__qaddr_t;
+typedef char *__caddr_t;
+
+
+__extension__ typedef int __intptr_t;
+
+
+__extension__ typedef unsigned int __socklen_t;
+# 36 "/usr/include/stdio.h" 2 3 4
+# 44 "/usr/include/stdio.h" 3 4
+struct _IO_FILE;
+
+
+
+typedef struct _IO_FILE FILE;
+
+
+
+
+
+# 64 "/usr/include/stdio.h" 3 4
+typedef struct _IO_FILE __FILE;
+# 74 "/usr/include/stdio.h" 3 4
+# 1 "/usr/include/libio.h" 1 3 4
+# 31 "/usr/include/libio.h" 3 4
+# 1 "/usr/include/_G_config.h" 1 3 4
+# 15 "/usr/include/_G_config.h" 3 4
+# 1 "/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h" 1 3 4
+# 16 "/usr/include/_G_config.h" 2 3 4
+
+
+
+
+# 1 "/usr/include/wchar.h" 1 3 4
+# 82 "/usr/include/wchar.h" 3 4
+typedef struct
+{
+  int __count;
+  union
+  {
+
+    unsigned int __wch;
+
+
+
+    char __wchb[4];
+  } __value;
+} __mbstate_t;
+# 21 "/usr/include/_G_config.h" 2 3 4
+typedef struct
+{
+  __off_t __pos;
+  __mbstate_t __state;
+} _G_fpos_t;
+typedef struct
+{
+  __off64_t __pos;
+  __mbstate_t __state;
+} _G_fpos64_t;
+# 32 "/usr/include/libio.h" 2 3 4
+# 49 "/usr/include/libio.h" 3 4
+# 1 "/usr/lib/gcc/i686-linux-gnu/5/include/stdarg.h" 1 3 4
+# 40 "/usr/lib/gcc/i686-linux-gnu/5/include/stdarg.h" 3 4
+typedef __builtin_va_list __gnuc_va_list;
+# 50 "/usr/include/libio.h" 2 3 4
+# 144 "/usr/include/libio.h" 3 4
+struct _IO_jump_t; struct _IO_FILE;
+
+
+
+
+
+typedef void _IO_lock_t;
+
+
+
+
+
+struct _IO_marker {
+  struct _IO_marker *_next;
+  struct _IO_FILE *_sbuf;
+
+
+
+  int _pos;
+# 173 "/usr/include/libio.h" 3 4
+};
+
+
+enum __codecvt_result
+{
+  __codecvt_ok,
+  __codecvt_partial,
+  __codecvt_error,
+  __codecvt_noconv
+};
+# 241 "/usr/include/libio.h" 3 4
+struct _IO_FILE {
+  int _flags;
+
+
+
+
+  char* _IO_read_ptr;
+  char* _IO_read_end;
+  char* _IO_read_base;
+  char* _IO_write_base;
+  char* _IO_write_ptr;
+  char* _IO_write_end;
+  char* _IO_buf_base;
+  char* _IO_buf_end;
+
+  char *_IO_save_base;
+  char *_IO_backup_base;
+  char *_IO_save_end;
+
+  struct _IO_marker *_markers;
+
+  struct _IO_FILE *_chain;
+
+  int _fileno;
+
+
+
+  int _flags2;
+
+  __off_t _old_offset;
+
+
+
+  unsigned short _cur_column;
+  signed char _vtable_offset;
+  char _shortbuf[1];
+
+
+
+  _IO_lock_t *_lock;
+# 289 "/usr/include/libio.h" 3 4
+  __off64_t _offset;
+
+
+
+
+
+
+
+  void *__pad1;
+  void *__pad2;
+  void *__pad3;
+  void *__pad4;
+
+  size_t __pad5;
+  int _mode;
+
+  char _unused2[15 * sizeof (int) - 4 * sizeof (void *) - sizeof (size_t)];
+
+};
+
+
+typedef struct _IO_FILE _IO_FILE;
+
+
+struct _IO_FILE_plus;
+
+extern struct _IO_FILE_plus _IO_2_1_stdin_;
+extern struct _IO_FILE_plus _IO_2_1_stdout_;
+extern struct _IO_FILE_plus _IO_2_1_stderr_;
+# 333 "/usr/include/libio.h" 3 4
+typedef __ssize_t __io_read_fn (void *__cookie, char *__buf, size_t __nbytes);
+
+
+
+
+
+
+
+typedef __ssize_t __io_write_fn (void *__cookie, const char *__buf,
+     size_t __n);
+
+
+
+
+
+
+
+typedef int __io_seek_fn (void *__cookie, __off64_t *__pos, int __w);
+
+
+typedef int __io_close_fn (void *__cookie);
+# 385 "/usr/include/libio.h" 3 4
+extern int __underflow (_IO_FILE *);
+extern int __uflow (_IO_FILE *);
+extern int __overflow (_IO_FILE *, int);
+# 429 "/usr/include/libio.h" 3 4
+extern int _IO_getc (_IO_FILE *__fp);
+extern int _IO_putc (int __c, _IO_FILE *__fp);
+extern int _IO_feof (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_ferror (_IO_FILE *__fp) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int _IO_peekc_locked (_IO_FILE *__fp);
+
+
+
+
+
+extern void _IO_flockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern void _IO_funlockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+extern int _IO_ftrylockfile (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+# 459 "/usr/include/libio.h" 3 4
+extern int _IO_vfscanf (_IO_FILE * 
+# 459 "/usr/include/libio.h"
+                                  __restrict__
+# 459 "/usr/include/libio.h" 3 4
+                                            , const char * 
+# 459 "/usr/include/libio.h"
+                                                           __restrict__
+# 459 "/usr/include/libio.h" 3 4
+                                                                     ,
+   __gnuc_va_list, int *
+# 460 "/usr/include/libio.h"
+                    __restrict__
+# 460 "/usr/include/libio.h" 3 4
+                              );
+extern int _IO_vfprintf (_IO_FILE *
+# 461 "/usr/include/libio.h"
+                                  __restrict__
+# 461 "/usr/include/libio.h" 3 4
+                                            , const char *
+# 461 "/usr/include/libio.h"
+                                                          __restrict__
+# 461 "/usr/include/libio.h" 3 4
+                                                                    ,
+    __gnuc_va_list);
+extern __ssize_t _IO_padn (_IO_FILE *, int, __ssize_t);
+extern size_t _IO_sgetn (_IO_FILE *, void *, size_t);
+
+extern __off64_t _IO_seekoff (_IO_FILE *, __off64_t, int, int);
+extern __off64_t _IO_seekpos (_IO_FILE *, __off64_t, int);
+
+extern void _IO_free_backup_area (_IO_FILE *) __attribute__ ((__nothrow__ , __leaf__));
+# 75 "/usr/include/stdio.h" 2 3 4
+# 108 "/usr/include/stdio.h" 3 4
+
+
+typedef _G_fpos_t fpos_t;
+
+
+
+
+# 164 "/usr/include/stdio.h" 3 4
+# 1 "/usr/include/i386-linux-gnu/bits/stdio_lim.h" 1 3 4
+# 165 "/usr/include/stdio.h" 2 3 4
+
+
+
+extern struct _IO_FILE *stdin;
+extern struct _IO_FILE *stdout;
+extern struct _IO_FILE *stderr;
+
+
+
+
+
+
+
+extern int remove (const char *__filename) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int rename (const char *__old, const char *__new) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+extern FILE *tmpfile (void) ;
+# 209 "/usr/include/stdio.h" 3 4
+extern char *tmpnam (char *__s) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+# 232 "/usr/include/stdio.h" 3 4
+
+
+
+
+
+extern int fclose (FILE *__stream);
+
+
+
+
+extern int fflush (FILE *__stream);
+
+# 266 "/usr/include/stdio.h" 3 4
+
+
+
+
+
+
+extern FILE *fopen (const char *
+# 272 "/usr/include/stdio.h"
+                               __restrict__ 
+# 272 "/usr/include/stdio.h" 3 4
+                                          __filename,
+      const char *
+# 273 "/usr/include/stdio.h"
+                 __restrict__ 
+# 273 "/usr/include/stdio.h" 3 4
+                            __modes) ;
+
+
+
+
+extern FILE *freopen (const char *
+# 278 "/usr/include/stdio.h"
+                                 __restrict__ 
+# 278 "/usr/include/stdio.h" 3 4
+                                            __filename,
+        const char *
+# 279 "/usr/include/stdio.h"
+                   __restrict__ 
+# 279 "/usr/include/stdio.h" 3 4
+                              __modes,
+        FILE *
+# 280 "/usr/include/stdio.h"
+             __restrict__ 
+# 280 "/usr/include/stdio.h" 3 4
+                        __stream) ;
+# 295 "/usr/include/stdio.h" 3 4
+
+# 329 "/usr/include/stdio.h" 3 4
+
+
+
+extern void setbuf (FILE *
+# 332 "/usr/include/stdio.h"
+                         __restrict__ 
+# 332 "/usr/include/stdio.h" 3 4
+                                    __stream, char *
+# 332 "/usr/include/stdio.h"
+                                                    __restrict__ 
+# 332 "/usr/include/stdio.h" 3 4
+                                                               __buf) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern int setvbuf (FILE *
+# 336 "/usr/include/stdio.h"
+                         __restrict__ 
+# 336 "/usr/include/stdio.h" 3 4
+                                    __stream, char *
+# 336 "/usr/include/stdio.h"
+                                                    __restrict__ 
+# 336 "/usr/include/stdio.h" 3 4
+                                                               __buf,
+      int __modes, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+
+# 351 "/usr/include/stdio.h" 3 4
+
+
+
+
+
+extern int fprintf (FILE *
+# 356 "/usr/include/stdio.h"
+                         __restrict__ 
+# 356 "/usr/include/stdio.h" 3 4
+                                    __stream,
+      const char *
+# 357 "/usr/include/stdio.h"
+                 __restrict__ 
+# 357 "/usr/include/stdio.h" 3 4
+                            __format, ...);
+
+
+
+
+extern int printf (const char *
+# 362 "/usr/include/stdio.h"
+                              __restrict__ 
+# 362 "/usr/include/stdio.h" 3 4
+                                         __format, ...);
+
+extern int sprintf (char *
+# 364 "/usr/include/stdio.h"
+                         __restrict__ 
+# 364 "/usr/include/stdio.h" 3 4
+                                    __s,
+      const char *
+# 365 "/usr/include/stdio.h"
+                 __restrict__ 
+# 365 "/usr/include/stdio.h" 3 4
+                            __format, ...) __attribute__ ((__nothrow__));
+
+
+
+
+
+extern int vfprintf (FILE *
+# 371 "/usr/include/stdio.h"
+                          __restrict__ 
+# 371 "/usr/include/stdio.h" 3 4
+                                     __s, const char *
+# 371 "/usr/include/stdio.h"
+                                                      __restrict__ 
+# 371 "/usr/include/stdio.h" 3 4
+                                                                 __format,
+       __gnuc_va_list __arg);
+
+
+
+
+extern int vprintf (const char *
+# 377 "/usr/include/stdio.h"
+                               __restrict__ 
+# 377 "/usr/include/stdio.h" 3 4
+                                          __format, __gnuc_va_list __arg);
+
+extern int vsprintf (char *
+# 379 "/usr/include/stdio.h"
+                          __restrict__ 
+# 379 "/usr/include/stdio.h" 3 4
+                                     __s, const char *
+# 379 "/usr/include/stdio.h"
+                                                      __restrict__ 
+# 379 "/usr/include/stdio.h" 3 4
+                                                                 __format,
+       __gnuc_va_list __arg) __attribute__ ((__nothrow__));
+
+
+
+
+
+extern int snprintf (char *
+# 386 "/usr/include/stdio.h"
+                          __restrict__ 
+# 386 "/usr/include/stdio.h" 3 4
+                                     __s, size_t __maxlen,
+       const char *
+# 387 "/usr/include/stdio.h"
+                  __restrict__ 
+# 387 "/usr/include/stdio.h" 3 4
+                             __format, ...)
+     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 4)));
+
+extern int vsnprintf (char *
+# 390 "/usr/include/stdio.h"
+                           __restrict__ 
+# 390 "/usr/include/stdio.h" 3 4
+                                      __s, size_t __maxlen,
+        const char *
+# 391 "/usr/include/stdio.h"
+                   __restrict__ 
+# 391 "/usr/include/stdio.h" 3 4
+                              __format, __gnuc_va_list __arg)
+     __attribute__ ((__nothrow__)) __attribute__ ((__format__ (__printf__, 3, 0)));
+
+# 420 "/usr/include/stdio.h" 3 4
+
+
+
+
+
+extern int fscanf (FILE *
+# 425 "/usr/include/stdio.h"
+                        __restrict__ 
+# 425 "/usr/include/stdio.h" 3 4
+                                   __stream,
+     const char *
+# 426 "/usr/include/stdio.h"
+                __restrict__ 
+# 426 "/usr/include/stdio.h" 3 4
+                           __format, ...) ;
+
+
+
+
+extern int scanf (const char *
+# 431 "/usr/include/stdio.h"
+                             __restrict__ 
+# 431 "/usr/include/stdio.h" 3 4
+                                        __format, ...) ;
+
+extern int sscanf (const char *
+# 433 "/usr/include/stdio.h"
+                              __restrict__ 
+# 433 "/usr/include/stdio.h" 3 4
+                                         __s,
+     const char *
+# 434 "/usr/include/stdio.h"
+                __restrict__ 
+# 434 "/usr/include/stdio.h" 3 4
+                           __format, ...) __attribute__ ((__nothrow__ , __leaf__));
+# 443 "/usr/include/stdio.h" 3 4
+extern int fscanf (FILE *
+# 443 "/usr/include/stdio.h"
+          __restrict__ 
+# 443 "/usr/include/stdio.h" 3 4
+          __stream, const char *
+# 443 "/usr/include/stdio.h"
+          __restrict__ 
+# 443 "/usr/include/stdio.h" 3 4
+          __format, ...) __asm__ ("" "__isoc99_fscanf")
+
+                               ;
+extern int scanf (const char *
+# 446 "/usr/include/stdio.h"
+          __restrict__ 
+# 446 "/usr/include/stdio.h" 3 4
+          __format, ...) __asm__ ("" "__isoc99_scanf")
+                              ;
+extern int sscanf (const char *
+# 448 "/usr/include/stdio.h"
+          __restrict__ 
+# 448 "/usr/include/stdio.h" 3 4
+          __s, const char *
+# 448 "/usr/include/stdio.h"
+          __restrict__ 
+# 448 "/usr/include/stdio.h" 3 4
+          __format, ...) __asm__ ("" "__isoc99_sscanf") __attribute__ ((__nothrow__ , __leaf__))
+
+                      ;
+# 463 "/usr/include/stdio.h" 3 4
+
+
+
+
+
+
+
+
+extern int vfscanf (FILE *
+# 471 "/usr/include/stdio.h"
+                         __restrict__ 
+# 471 "/usr/include/stdio.h" 3 4
+                                    __s, const char *
+# 471 "/usr/include/stdio.h"
+                                                     __restrict__ 
+# 471 "/usr/include/stdio.h" 3 4
+                                                                __format,
+      __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__scanf__, 2, 0))) ;
+
+
+
+
+
+extern int vscanf (const char *
+# 479 "/usr/include/stdio.h"
+                              __restrict__ 
+# 479 "/usr/include/stdio.h" 3 4
+                                         __format, __gnuc_va_list __arg)
+     __attribute__ ((__format__ (__scanf__, 1, 0))) ;
+
+
+extern int vsscanf (const char *
+# 483 "/usr/include/stdio.h"
+                               __restrict__ 
+# 483 "/usr/include/stdio.h" 3 4
+                                          __s,
+      const char *
+# 484 "/usr/include/stdio.h"
+                 __restrict__ 
+# 484 "/usr/include/stdio.h" 3 4
+                            __format, __gnuc_va_list __arg)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__format__ (__scanf__, 2, 0)));
+# 494 "/usr/include/stdio.h" 3 4
+extern int vfscanf (FILE *
+# 494 "/usr/include/stdio.h"
+          __restrict__ 
+# 494 "/usr/include/stdio.h" 3 4
+          __s, const char *
+# 494 "/usr/include/stdio.h"
+          __restrict__ 
+# 494 "/usr/include/stdio.h" 3 4
+          __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vfscanf")
+
+
+
+     __attribute__ ((__format__ (__scanf__, 2, 0))) ;
+extern int vscanf (const char *
+# 499 "/usr/include/stdio.h"
+          __restrict__ 
+# 499 "/usr/include/stdio.h" 3 4
+          __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vscanf")
+
+     __attribute__ ((__format__ (__scanf__, 1, 0))) ;
+extern int vsscanf (const char *
+# 502 "/usr/include/stdio.h"
+          __restrict__ 
+# 502 "/usr/include/stdio.h" 3 4
+          __s, const char *
+# 502 "/usr/include/stdio.h"
+          __restrict__ 
+# 502 "/usr/include/stdio.h" 3 4
+          __format, __gnuc_va_list __arg) __asm__ ("" "__isoc99_vsscanf") __attribute__ ((__nothrow__ , __leaf__))
+
+
+
+     __attribute__ ((__format__ (__scanf__, 2, 0)));
+# 522 "/usr/include/stdio.h" 3 4
+
+
+
+
+
+
+
+
+
+extern int fgetc (FILE *__stream);
+extern int getc (FILE *__stream);
+
+
+
+
+
+extern int getchar (void);
+
+# 565 "/usr/include/stdio.h" 3 4
+
+
+
+
+
+
+
+
+extern int fputc (int __c, FILE *__stream);
+extern int putc (int __c, FILE *__stream);
+
+
+
+
+
+extern int putchar (int __c);
+
+# 617 "/usr/include/stdio.h" 3 4
+
+
+
+
+
+extern char *fgets (char *
+# 622 "/usr/include/stdio.h"
+                         __restrict__ 
+# 622 "/usr/include/stdio.h" 3 4
+                                    __s, int __n, FILE *
+# 622 "/usr/include/stdio.h"
+                                                        __restrict__ 
+# 622 "/usr/include/stdio.h" 3 4
+                                                                   __stream)
+     ;
+# 638 "/usr/include/stdio.h" 3 4
+extern char *gets (char *__s) __attribute__ ((__deprecated__));
+
+
+# 684 "/usr/include/stdio.h" 3 4
+
+
+
+
+
+extern int fputs (const char *
+# 689 "/usr/include/stdio.h"
+                             __restrict__ 
+# 689 "/usr/include/stdio.h" 3 4
+                                        __s, FILE *
+# 689 "/usr/include/stdio.h"
+                                                   __restrict__ 
+# 689 "/usr/include/stdio.h" 3 4
+                                                              __stream);
+
+
+
+
+
+extern int puts (const char *__s);
+
+
+
+
+
+
+extern int ungetc (int __c, FILE *__stream);
+
+
+
+
+
+
+extern size_t fread (void *
+# 709 "/usr/include/stdio.h"
+                          __restrict__ 
+# 709 "/usr/include/stdio.h" 3 4
+                                     __ptr, size_t __size,
+       size_t __n, FILE *
+# 710 "/usr/include/stdio.h"
+                        __restrict__ 
+# 710 "/usr/include/stdio.h" 3 4
+                                   __stream) ;
+
+
+
+
+extern size_t fwrite (const void *
+# 715 "/usr/include/stdio.h"
+                                 __restrict__ 
+# 715 "/usr/include/stdio.h" 3 4
+                                            __ptr, size_t __size,
+        size_t __n, FILE *
+# 716 "/usr/include/stdio.h"
+                         __restrict__ 
+# 716 "/usr/include/stdio.h" 3 4
+                                    __s);
+
+# 744 "/usr/include/stdio.h" 3 4
+
+
+
+
+
+extern int fseek (FILE *__stream, long int __off, int __whence);
+
+
+
+
+extern long int ftell (FILE *__stream) ;
+
+
+
+
+extern void rewind (FILE *__stream);
+
+# 792 "/usr/include/stdio.h" 3 4
+
+
+
+
+
+
+extern int fgetpos (FILE *
+# 798 "/usr/include/stdio.h"
+                         __restrict__ 
+# 798 "/usr/include/stdio.h" 3 4
+                                    __stream, fpos_t *
+# 798 "/usr/include/stdio.h"
+                                                      __restrict__ 
+# 798 "/usr/include/stdio.h" 3 4
+                                                                 __pos);
+
+
+
+
+extern int fsetpos (FILE *__stream, const fpos_t *__pos);
+# 815 "/usr/include/stdio.h" 3 4
+
+# 824 "/usr/include/stdio.h" 3 4
+
+
+extern void clearerr (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__));
+
+extern int feof (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+extern int ferror (FILE *__stream) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+# 841 "/usr/include/stdio.h" 3 4
+
+
+
+
+
+extern void perror (const char *__s);
+
+
+
+
+
+
+# 1 "/usr/include/i386-linux-gnu/bits/sys_errlist.h" 1 3 4
+# 854 "/usr/include/stdio.h" 2 3 4
+# 942 "/usr/include/stdio.h" 3 4
+
+# 26 "/home/qrs/opt/modelverify/include/utils/assertion.h" 2
+# 1 "/usr/include/stdlib.h" 1 3 4
+# 32 "/usr/include/stdlib.h" 3 4
+# 1 "/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h" 1 3 4
+# 328 "/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h" 3 4
+typedef long int wchar_t;
+# 33 "/usr/include/stdlib.h" 2 3 4
+
+
+# 95 "/usr/include/stdlib.h" 3 4
+
+
+typedef struct
+  {
+    int quot;
+    int rem;
+  } div_t;
+
+
+
+typedef struct
+  {
+    long int quot;
+    long int rem;
+  } ldiv_t;
+
+
+
+
+
+
+
+__extension__ typedef struct
+  {
+    long long int quot;
+    long long int rem;
+  } lldiv_t;
+
+
+# 139 "/usr/include/stdlib.h" 3 4
+extern size_t __ctype_get_mb_cur_max (void) __attribute__ ((__nothrow__ , __leaf__)) ;
+
+
+
+
+extern double atof (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
+
+extern int atoi (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
+
+extern long int atol (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
+
+
+
+
+
+__extension__ extern long long int atoll (const char *__nptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__pure__)) __attribute__ ((__nonnull__ (1))) ;
+
+
+
+
+
+extern double strtod (const char *
+# 164 "/usr/include/stdlib.h"
+                                 __restrict__ 
+# 164 "/usr/include/stdlib.h" 3 4
+                                            __nptr,
+        char **
+# 165 "/usr/include/stdlib.h"
+              __restrict__ 
+# 165 "/usr/include/stdlib.h" 3 4
+                         __endptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+extern float strtof (const char *
+# 172 "/usr/include/stdlib.h"
+                                __restrict__ 
+# 172 "/usr/include/stdlib.h" 3 4
+                                           __nptr,
+       char **
+# 173 "/usr/include/stdlib.h"
+             __restrict__ 
+# 173 "/usr/include/stdlib.h" 3 4
+                        __endptr) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+extern long double strtold (const char *
+# 175 "/usr/include/stdlib.h"
+                                       __restrict__ 
+# 175 "/usr/include/stdlib.h" 3 4
+                                                  __nptr,
+       char **
+# 176 "/usr/include/stdlib.h"
+             __restrict__ 
+# 176 "/usr/include/stdlib.h" 3 4
+                        __endptr)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+
+
+
+
+extern long int strtol (const char *
+# 183 "/usr/include/stdlib.h"
+                                   __restrict__ 
+# 183 "/usr/include/stdlib.h" 3 4
+                                              __nptr,
+   char **
+# 184 "/usr/include/stdlib.h"
+         __restrict__ 
+# 184 "/usr/include/stdlib.h" 3 4
+                    __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+extern unsigned long int strtoul (const char *
+# 187 "/usr/include/stdlib.h"
+                                             __restrict__ 
+# 187 "/usr/include/stdlib.h" 3 4
+                                                        __nptr,
+      char **
+# 188 "/usr/include/stdlib.h"
+            __restrict__ 
+# 188 "/usr/include/stdlib.h" 3 4
+                       __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+# 206 "/usr/include/stdlib.h" 3 4
+
+
+__extension__
+extern long long int strtoll (const char *
+# 209 "/usr/include/stdlib.h"
+                                         __restrict__ 
+# 209 "/usr/include/stdlib.h" 3 4
+                                                    __nptr,
+         char **
+# 210 "/usr/include/stdlib.h"
+               __restrict__ 
+# 210 "/usr/include/stdlib.h" 3 4
+                          __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+__extension__
+extern unsigned long long int strtoull (const char *
+# 214 "/usr/include/stdlib.h"
+                                                   __restrict__ 
+# 214 "/usr/include/stdlib.h" 3 4
+                                                              __nptr,
+     char **
+# 215 "/usr/include/stdlib.h"
+           __restrict__ 
+# 215 "/usr/include/stdlib.h" 3 4
+                      __endptr, int __base)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+
+# 372 "/usr/include/stdlib.h" 3 4
+
+
+extern int rand (void) __attribute__ ((__nothrow__ , __leaf__));
+
+extern void srand (unsigned int __seed) __attribute__ ((__nothrow__ , __leaf__));
+
+# 464 "/usr/include/stdlib.h" 3 4
+
+
+extern void *malloc (size_t __size) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+
+extern void *calloc (size_t __nmemb, size_t __size)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__malloc__)) ;
+
+
+
+
+
+
+
+
+
+
+extern void *realloc (void *__ptr, size_t __size)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__warn_unused_result__));
+
+extern void free (void *__ptr) __attribute__ ((__nothrow__ , __leaf__));
+
+# 513 "/usr/include/stdlib.h" 3 4
+
+
+extern void abort (void) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+
+
+extern int atexit (void (*__func) (void)) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1)));
+# 530 "/usr/include/stdlib.h" 3 4
+
+# 539 "/usr/include/stdlib.h" 3 4
+
+
+
+
+extern void exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+
+
+
+
+
+
+
+
+
+
+
+
+extern void _Exit (int __status) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__noreturn__));
+
+
+
+
+
+
+extern char *getenv (const char *__name) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((__nonnull__ (1))) ;
+
+# 711 "/usr/include/stdlib.h" 3 4
+
+
+
+
+
+extern int system (const char *__command) ;
+
+# 741 "/usr/include/stdlib.h" 3 4
+typedef int (*__compar_fn_t) (const void *, const void *);
+# 751 "/usr/include/stdlib.h" 3 4
+
+
+
+extern void *bsearch (const void *__key, const void *__base,
+        size_t __nmemb, size_t __size, __compar_fn_t __compar)
+     __attribute__ ((__nonnull__ (1, 2, 5))) ;
+
+
+
+
+
+
+
+extern void qsort (void *__base, size_t __nmemb, size_t __size,
+     __compar_fn_t __compar) __attribute__ ((__nonnull__ (1, 4)));
+# 774 "/usr/include/stdlib.h" 3 4
+extern int abs (int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((
+# 774 "/usr/include/stdlib.h"
+                                                const
+# 774 "/usr/include/stdlib.h" 3 4
+                                                         )) ;
+extern long int labs (long int __x) __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((
+# 775 "/usr/include/stdlib.h"
+                                                           const
+# 775 "/usr/include/stdlib.h" 3 4
+                                                                    )) ;
+
+
+
+__extension__ extern long long int llabs (long long int __x)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((
+# 780 "/usr/include/stdlib.h"
+                            const
+# 780 "/usr/include/stdlib.h" 3 4
+                                     )) ;
+
+
+
+
+
+
+
+extern div_t div (int __numer, int __denom)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((
+# 789 "/usr/include/stdlib.h"
+                            const
+# 789 "/usr/include/stdlib.h" 3 4
+                                     )) ;
+extern ldiv_t ldiv (long int __numer, long int __denom)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((
+# 791 "/usr/include/stdlib.h"
+                            const
+# 791 "/usr/include/stdlib.h" 3 4
+                                     )) ;
+
+
+
+
+__extension__ extern lldiv_t lldiv (long long int __numer,
+        long long int __denom)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((
+# 798 "/usr/include/stdlib.h"
+                            const
+# 798 "/usr/include/stdlib.h" 3 4
+                                     )) ;
+
+# 859 "/usr/include/stdlib.h" 3 4
+
+
+
+extern int mblen (const char *__s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int mbtowc (wchar_t *
+# 865 "/usr/include/stdlib.h"
+                           __restrict__ 
+# 865 "/usr/include/stdlib.h" 3 4
+                                      __pwc,
+     const char *
+# 866 "/usr/include/stdlib.h"
+                __restrict__ 
+# 866 "/usr/include/stdlib.h" 3 4
+                           __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern int wctomb (char *__s, wchar_t __wchar) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern size_t mbstowcs (wchar_t *
+# 873 "/usr/include/stdlib.h"
+                                __restrict__ 
+# 873 "/usr/include/stdlib.h" 3 4
+                                            __pwcs,
+   const char *
+# 874 "/usr/include/stdlib.h"
+              __restrict__ 
+# 874 "/usr/include/stdlib.h" 3 4
+                         __s, size_t __n) __attribute__ ((__nothrow__ , __leaf__));
+
+extern size_t wcstombs (char *
+# 876 "/usr/include/stdlib.h"
+                             __restrict__ 
+# 876 "/usr/include/stdlib.h" 3 4
+                                        __s,
+   const wchar_t *
+# 877 "/usr/include/stdlib.h"
+                 __restrict__ 
+# 877 "/usr/include/stdlib.h" 3 4
+                            __pwcs, size_t __n)
+     __attribute__ ((__nothrow__ , __leaf__));
+
+# 954 "/usr/include/stdlib.h" 3 4
+# 1 "/usr/include/i386-linux-gnu/bits/stdlib-float.h" 1 3 4
+# 955 "/usr/include/stdlib.h" 2 3 4
+# 967 "/usr/include/stdlib.h" 3 4
+
+# 27 "/home/qrs/opt/modelverify/include/utils/assertion.h" 2
+# 1 "/usr/lib/gcc/i686-linux-gnu/5/include/stdarg.h" 1 3 4
+# 98 "/usr/lib/gcc/i686-linux-gnu/5/include/stdarg.h" 3 4
+typedef __gnuc_va_list va_list;
+# 28 "/home/qrs/opt/modelverify/include/utils/assertion.h" 2
+# 42 "/home/qrs/opt/modelverify/include/utils/assertion.h"
+
+# 42 "/home/qrs/opt/modelverify/include/utils/assertion.h"
+typedef void (*AssertionExit)(const char *format, va_list args);
+# 53 "/home/qrs/opt/modelverify/include/utils/assertion.h"
+AssertionExit atAssertion(AssertionExit func);
+AssertionExit atFault(AssertionExit func);
+
+
+
+
+
+bool isCustomAssertionExit(void);
+
+
+
+
+
+void assertion (int expr, const char* format, ...);
+void fault (int expr, const char* format, ...);
+# 43 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+# 1 "/home/qrs/opt/modelverify/include/ts/generated.h" 1
+# 31 "/home/qrs/opt/modelverify/include/ts/generated.h"
+#pragma SEC force_use_start
+
+
+# 1 "/home/qrs/opt/modelverify/include/ts/convex.h" 1
+# 30 "/home/qrs/opt/modelverify/include/ts/convex.h"
+# 1 "/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h" 1 3 4
+# 149 "/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h" 3 4
+
+# 149 "/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h" 3 4
+typedef int ptrdiff_t;
+# 31 "/home/qrs/opt/modelverify/include/ts/convex.h" 2
+
+# 1 "/home/qrs/opt/modelverify/include/atl/string.h" 1
+# 24 "/home/qrs/opt/modelverify/include/atl/string.h"
+# 1 "/home/qrs/opt/modelverify/include/atl/object.h" 1
+# 31 "/home/qrs/opt/modelverify/include/atl/object.h"
+
+# 31 "/home/qrs/opt/modelverify/include/atl/object.h"
+typedef struct Type Type;
+
+
+# 1 "/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h" 1 3 4
+# 35 "/home/qrs/opt/modelverify/include/atl/object.h" 2
+
+# 1 "/home/qrs/opt/modelverify/include/atl/string.h" 1
+# 24 "/home/qrs/opt/modelverify/include/atl/string.h"
+# 1 "/home/qrs/opt/modelverify/include/atl/object.h" 1
+# 25 "/home/qrs/opt/modelverify/include/atl/string.h" 2
+# 44 "/home/qrs/opt/modelverify/include/atl/string.h"
+#pragma SEC file
+  specification typedef struct String String;
+# 54 "/home/qrs/opt/modelverify/include/atl/string.h"
+String *create_String( const char* cstr );
+
+
+
+
+char charAt_String( String *self, int index );
+
+
+
+
+String *concat_String( String *self, String *str );
+
+
+
+
+bool endsWith_String( String *self, String *suffix );
+
+
+
+
+
+int indexOfChar_String( String *self, int ch );
+
+
+
+
+
+int indexOfCharFrom_String( String *self, int ch, int fromIndex );
+
+
+
+
+
+int indexOfString_String( String *self, String *str );
+
+
+
+
+
+int indexOfStringFrom_String( String *self, String *str, int fromIndex );
+
+
+
+
+
+int lastIndexOfChar_String( String *self, int ch );
+
+
+
+
+
+
+int lastIndexOfCharFrom_String( String *self, int ch, int fromIndex );
+
+
+
+
+
+int lastIndexOfString_String( String *self, String *str );
+
+
+
+
+
+int lastIndexOfStringFrom_String( String *self, String *str, int fromIndex );
+
+
+
+
+int length_String( String *self );
+
+
+
+
+bool regionMatches_String( String *self
+                         , bool ignoreCase
+                         , int toffset
+                         , String *other
+                         , int ooffset
+                         , int len
+                         );
+
+
+
+
+bool regionMatchesCase_String( String *self
+                             , int toffset
+                             , String *other
+                             , int ooffset
+                             , int len
+                             );
+
+
+
+
+
+String *replace_String( String *self, char oldChar, char newChar );
+
+
+
+
+bool startsWith_String( String *self, String *prefix );
+
+
+
+
+
+bool startsWithOffset_String( String *self, String *prefix, int toffset );
+
+
+
+
+String *substringFrom_String( String *self, int beginIndex );
+
+
+
+
+String *substring_String( String *self, int beginIndex, int endIndex );
+
+
+
+
+const char* toCharArray_String( String *self );
+
+
+
+
+String *toLowerCase_String( String *self );
+
+
+
+
+String *toUpperCase_String( String *self );
+
+
+
+
+String *trim_String( String *self );
+
+
+
+
+String *format_String(const char * format, ...);
+
+String *vformat_String(const char * format, va_list args);
+
+
+
+
+String *valueOfBool_String( bool b );
+
+
+
+
+String *valueOfChar_String( char c );
+
+
+
+
+String *valueOfShort_String( short i );
+
+
+
+
+String *valueOfUShort_String( unsigned short i );
+
+
+
+
+String *valueOfInt_String( int i );
+
+
+
+
+String *valueOfUInt_String( unsigned int i );
+
+
+
+
+String *valueOfLong_String( long l );
+
+
+
+
+String *valueOfULong_String( unsigned long l );
+
+
+
+
+String *valueOfFloat_String( float f );
+
+
+
+
+String *valueOfDouble_String( double d );
+
+
+
+
+String *valueOfPtr_String (void *p);
+
+
+
+
+String *valueOfObject_String( Object *ref );
+
+
+
+
+String *valueOfBytes_String( const char* p, int l );
+
+String *XML_encode_String(String *self);
+
+
+
+
+int hash_String( String *str );
+# 37 "/home/qrs/opt/modelverify/include/atl/object.h" 2
+# 60 "/home/qrs/opt/modelverify/include/atl/object.h"
+Object *r( Object *ref );
+
+Object* r_weak( Object* ref );
+Object* r_hard( Object* ref );
+Object* r_hard2weak( Object* ref );
+Object* r_weak2hard( Object* ref );
+
+
+
+
+
+
+void r_take( Object* ref );
+void r_release( Object* ref );
+# 87 "/home/qrs/opt/modelverify/include/atl/object.h"
+typedef void (*Init)(void* ref, va_list* arg_list);
+
+
+
+
+typedef void (*Copy)(void* src, void* dst);
+
+
+
+
+typedef int (*Compare)(void* left, void* right);
+
+
+
+
+typedef String* (*ToString)(void* ref);
+
+
+
+
+typedef String* (*ToXML)(void* ref);
+
+
+
+
+typedef bool (*CheckInvariant)(Object* ref);
+
+
+
+
+typedef bool (*EnumerationCallbackFuncType)(void* ref, void* par);
+
+
+
+
+typedef void (*Enumerate)(void* ref, EnumerationCallbackFuncType callback, void* par);
+
+
+
+
+typedef void (*Destroy)(void* ref);
+
+
+
+
+struct Type
+{
+    const char* name;
+    size_t size;
+    const Type* base;
+    Init init;
+    Copy copy;
+    Compare compare;
+    ToString to_string;
+    ToXML to_XML;
+    CheckInvariant check_invariant;
+    Enumerate enumerate;
+    Destroy destroy;
+
+};
+
+
+
+
+extern const Type type_Object;
+
+
+
+
+const Type* type( Object *ref );
+
+
+
+
+
+
+
+const Type* TYPE( Object *ref );
+
+
+
+
+size_t size_Type( const Type* type );
+# 186 "/home/qrs/opt/modelverify/include/atl/object.h"
+bool isBasicType(const Type* type1,const Type* type2);
+
+
+
+
+const Type* getMaximalType(const Type* type);
+# 210 "/home/qrs/opt/modelverify/include/atl/object.h"
+Object* create_Object( const Type*, ... );
+Object* va_create_Object( const Type*, va_list* arg_list );
+
+
+  Object* create( const Type*, ... );
+
+
+
+  Object* va_create( const Type*, va_list* arg_list );
+
+
+
+
+
+
+
+Object* clone_Object( Object* ref );
+
+
+  Object* clone( Object* ref );
+
+
+
+
+
+
+void set_Object( Object* ref, ... );
+
+
+  void set( Object* ref, ... );
+# 251 "/home/qrs/opt/modelverify/include/atl/object.h"
+void copy_Object( Object *src, Object *dst );
+
+
+  void copy( Object *src, Object *dst );
+# 265 "/home/qrs/opt/modelverify/include/atl/object.h"
+int compare_Object( Object *left, Object *right );
+
+
+  int compare( Object *left, Object *right );
+# 279 "/home/qrs/opt/modelverify/include/atl/object.h"
+bool equals_Object( Object *self, Object *ref );
+
+
+  bool equals( Object *self, Object *ref );
+
+
+
+
+
+
+
+String* toString_Object( Object *ref );
+
+
+  String* toString( Object *ref );
+  String* toTrace( Object *ref );
+
+
+
+
+
+
+String* toXML_Object( Object *ref );
+
+
+  String* toXML( Object *ref );
+  String* to_XML_spec(const char *type, String *value);
+  String* toTrace( Object *ref );
+
+
+
+
+
+
+bool checkInvariant_Object(Object* ref);
+
+
+  bool checkInvariant(Object* ref);
+# 326 "/home/qrs/opt/modelverify/include/atl/object.h"
+void detach_Object( Object* ref );
+# 335 "/home/qrs/opt/modelverify/include/atl/object.h"
+void destroy_Object( Object *ref );
+
+
+  void destroy( Object *ref );
+# 353 "/home/qrs/opt/modelverify/include/atl/object.h"
+void init_Default( Object *ref, va_list* arg_list );
+
+
+
+
+void copy_Default( Object *src, Object *dst );
+
+
+
+
+int compare_Default( Object *left, Object *right );
+
+
+
+
+String *to_string_Default( Object *ref );
+
+
+
+
+String *to_XML_Default( Object *ref );
+
+
+
+
+bool check_invariant_Default( Object* ref );
+
+
+
+
+void enumerate_Default( Object *ref, EnumerationCallbackFuncType callback, void* par );
+
+
+
+
+void destroy_Default( Object *ref );
+# 402 "/home/qrs/opt/modelverify/include/atl/object.h"
+void init_Subtype( Object *ref, va_list* arg_list );
+
+
+
+
+void copy_Subtype( Object *src, Object *dst );
+
+
+
+
+int compare_Subtype( Object *left, Object *right );
+
+
+
+
+String *to_string_Subtype( Object *ref );
+
+
+
+
+String *to_XML_Subtype( Object *ref );
+
+
+
+
+void enumerate_Subtype( Object *ref, EnumerationCallbackFuncType callback, void* par );
+
+
+
+
+void destroy_Subtype( Object *ref );
+# 25 "/home/qrs/opt/modelverify/include/atl/string.h" 2
+# 33 "/home/qrs/opt/modelverify/include/ts/convex.h" 2
+# 42 "/home/qrs/opt/modelverify/include/ts/convex.h"
+typedef
+enum SECTypeKind
+{
+  simpleType,
+  structType,
+  pointerType,
+  arrayType,
+  specType,
+  subType
+} SECTypeKind;
+
+
+
+
+
+typedef struct SECTypeDesc SECTypeDesc;
+struct SECTypeDesc
+{
+  SECTypeKind kind;
+  ToString customToString;
+  ToXML customToXML;
+};
+
+
+
+
+
+typedef struct SimpleTypeDesc SimpleTypeDesc;
+struct SimpleTypeDesc
+{
+  SECTypeKind kind;
+  ToString customToString;
+  ToXML customToXML;
+  const char* name;
+  size_t sizeOf;
+  const char *format;
+};
+
+
+
+
+
+typedef struct FieldDesc FieldDesc;
+struct FieldDesc
+{
+  const char* name;
+  unsigned int offset;
+  SECTypeDesc* type_desc;
+};
+
+typedef struct StructTypeDesc StructTypeDesc;
+struct StructTypeDesc
+{
+  SECTypeKind kind;
+  ToString customToString;
+  ToXML customToXML;
+  const char* name;
+  size_t sizeOf;
+  int numFields;
+  FieldDesc* fields;
+};
+
+
+
+
+
+typedef struct PointerTypeDesc PointerTypeDesc;
+struct PointerTypeDesc
+{
+  SECTypeKind kind;
+  ToString customToString;
+  ToXML customToXML;
+  int level;
+  SECTypeDesc* base;
+};
+
+
+
+
+
+typedef struct ArrayTypeDesc ArrayTypeDesc;
+struct ArrayTypeDesc
+{
+  SECTypeKind kind;
+  ToString customToString;
+  ToXML customToXML;
+  size_t sizeOfElement;
+  int numElements;
+  SECTypeDesc* base;
+};
+
+
+
+
+
+typedef struct SpecTypeDesc SpecTypeDesc;
+struct SpecTypeDesc
+{
+  SECTypeKind kind;
+  ToString customToString;
+  ToXML customToXML;
+  const Type* type;
+};
+
+
+
+
+
+typedef bool(*InvariantCheckerPtr)(void*);
+
+typedef struct SubTypeDesc SubTypeDesc;
+struct SubTypeDesc
+{
+  SECTypeKind kind;
+  ToString customToString;
+  ToXML customToXML;
+  const char* name;
+  SECTypeDesc* base;
+  InvariantCheckerPtr invariant_checker;
+};
+
+SECTypeDesc* ts_base_type_desc(SECTypeDesc* type_desc);
+
+
+
+
+
+void ts_start_copy_sectype();
+void ts_copy_sectype(SECTypeDesc* desc,void* dst,void* src,bool weak);
+void ts_finish_copy_sectype();
+
+
+
+
+
+bool ts_equals_sectype(SECTypeDesc* desc,void* left,void* right);
+
+
+
+
+
+String* ts_to_string_sectype(SECTypeDesc* desc,void* ptr);
+String* ts_to_XML_sectype( SECTypeDesc* desc,void* ptr );
+String* ts_to_trace_sectype(SECTypeDesc* desc,void* ptr);
+
+bool ts_start_to_XML();
+String* create_single_XML_entry(const char *kind, const char *type, String *value);
+void ts_finish_to_XML();
+
+
+
+
+
+bool ts_check_invariant_sectype(SECTypeDesc* desc,void* ptr);
+
+
+
+
+
+void ts_enumerate_sectype(SECTypeDesc* desc,void* ptr,EnumerationCallbackFuncType callback,void* par);
+
+
+
+
+
+void ts_start_destroy_sectype();
+void ts_destroy_sectype(SECTypeDesc* desc,void* ptr,bool weak);
+void ts_finish_destroy_sectype();
+# 35 "/home/qrs/opt/modelverify/include/ts/generated.h" 2
+# 1 "/home/qrs/opt/modelverify/include/ts/timemark.h" 1
+# 30 "/home/qrs/opt/modelverify/include/ts/timemark.h"
+# 1 "/home/qrs/opt/modelverify/include/utils/stdint.h" 1
+# 31 "/home/qrs/opt/modelverify/include/utils/stdint.h"
+# 1 "/usr/lib/gcc/i686-linux-gnu/5/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/i686-linux-gnu/5/include/stdint.h" 3 4
+# 1 "/usr/include/stdint.h" 1 3 4
+# 26 "/usr/include/stdint.h" 3 4
+# 1 "/usr/include/i386-linux-gnu/bits/wchar.h" 1 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
+# 1 "/usr/include/i386-linux-gnu/bits/wordsize.h" 1 3 4
+# 28 "/usr/include/stdint.h" 2 3 4
+# 36 "/usr/include/stdint.h" 3 4
+
+# 36 "/usr/include/stdint.h" 3 4
+typedef signed char int8_t;
+typedef short int int16_t;
+typedef int int32_t;
+
+
+
+__extension__
+typedef long long int int64_t;
+
+
+
+
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+
+typedef unsigned int uint32_t;
+
+
+
+
+
+__extension__
+typedef unsigned long long int uint64_t;
+
+
+
+
+
+
+typedef signed char int_least8_t;
+typedef short int int_least16_t;
+typedef int int_least32_t;
+
+
+
+__extension__
+typedef long long int int_least64_t;
+
+
+
+typedef unsigned char uint_least8_t;
+typedef unsigned short int uint_least16_t;
+typedef unsigned int uint_least32_t;
+
+
+
+__extension__
+typedef unsigned long long int uint_least64_t;
+
+
+
+
+
+
+typedef signed char int_fast8_t;
+
+
+
+
+
+typedef int int_fast16_t;
+typedef int int_fast32_t;
+__extension__
+typedef long long int int_fast64_t;
+
+
+
+typedef unsigned char uint_fast8_t;
+
+
+
+
+
+typedef unsigned int uint_fast16_t;
+typedef unsigned int uint_fast32_t;
+__extension__
+typedef unsigned long long int uint_fast64_t;
+# 125 "/usr/include/stdint.h" 3 4
+typedef int intptr_t;
+
+
+typedef unsigned int uintptr_t;
+# 137 "/usr/include/stdint.h" 3 4
+__extension__
+typedef long long int intmax_t;
+__extension__
+typedef unsigned long long int uintmax_t;
+# 10 "/usr/lib/gcc/i686-linux-gnu/5/include/stdint.h" 2 3 4
+# 32 "/home/qrs/opt/modelverify/include/utils/stdint.h" 2
+# 31 "/home/qrs/opt/modelverify/include/ts/timemark.h" 2
+# 39 "/home/qrs/opt/modelverify/include/ts/timemark.h"
+
+# 39 "/home/qrs/opt/modelverify/include/ts/timemark.h"
+typedef long ChannelID;
+
+extern const ChannelID WrongChannel;
+extern const ChannelID UniqueChannel;
+
+ChannelID getChannelID(void);
+void releaseChannelID(ChannelID chid);
+
+
+
+
+
+typedef uint64_t LinearTimeMark;
+
+
+
+
+
+typedef int TimeFrameOfReferenceID;
+
+extern const TimeFrameOfReferenceID infiniteTimeFrameOfReferenceID;
+extern const TimeFrameOfReferenceID systemTimeFrameOfReferenceID;
+
+TimeFrameOfReferenceID getTimeFrameOfReferenceID(const char* name);
+bool setSystemTimeFrameOfReferenceName(const char* name);
+
+
+
+
+
+typedef struct TimeMark TimeMark;
+
+struct TimeMark
+{
+  TimeFrameOfReferenceID frame;
+  LinearTimeMark timemark;
+};
+
+extern const TimeMark minTimeMark;
+extern const TimeMark maxTimeMark;
+
+TimeMark createTimeMark(LinearTimeMark timemark);
+TimeMark createDistributedTimeMark(TimeFrameOfReferenceID frame,LinearTimeMark timemark);
+
+
+
+
+
+void setTimeMarkDependence(TimeMark former,TimeMark latter);
+
+
+
+
+
+typedef
+enum CompareResult
+{
+  EqualCR,
+  LessCR,
+  GreaterCR,
+  NonComparableCR
+}
+CompareResult;
+
+CompareResult compareTimeMarks(TimeMark tm1,TimeMark tm2);
+
+bool equalTimeMarks(TimeMark tm1,TimeMark tm2);
+bool lessTimeMarks(TimeMark tm1,TimeMark tm2);
+bool lessOrEqualTimeMarks(TimeMark tm1,TimeMark tm2);
+bool greaterTimeMarks(TimeMark tm1,TimeMark tm2);
+bool greaterOrEqualTimeMarks(TimeMark tm1,TimeMark tm2);
+bool noncomparableTimeMarks(TimeMark tm1,TimeMark tm2);
+
+
+
+
+
+typedef int64_t TimeUnit;
+
+TimeUnit diffTimeMarks(TimeMark tm1,TimeMark tm2);
+TimeMark addTimeMarks(TimeMark tm,TimeUnit delta);
+TimeMark subtractTimeMarks(TimeMark tm,TimeUnit delta);
+
+
+
+
+
+typedef struct TimeInterval TimeInterval;
+
+struct TimeInterval
+{
+  TimeMark minMark;
+  TimeMark maxMark;
+};
+
+extern const TimeInterval overallTimeInterval;
+
+TimeInterval createTimeInterval(TimeMark minMark,TimeMark maxMark);
+
+bool areIntersectedTimeIntervals(TimeInterval ti1,TimeInterval ti2);
+TimeInterval addTimeIntervals(TimeInterval ti,TimeUnit delta);
+TimeInterval subtractTimeIntervals(TimeInterval ti,TimeUnit delta);
+# 151 "/home/qrs/opt/modelverify/include/ts/timemark.h"
+int printLinearTimeInterval(char* buffer,TimeInterval interval);
+
+
+
+
+
+int printDistributedTimeInterval(char* buffer,TimeInterval interval);
+
+
+
+
+
+bool setAutomaticTimeMarksMode(bool enable);
+bool areAutomaticTimeMarksEnabled(void);
+
+TimeMark getCurrentTimeMark(void);
+
+typedef TimeMark (*GetCurrentTimeMarkFuncType)(void);
+GetCurrentTimeMarkFuncType setDefaultCurrentTimeMarkFunction(GetCurrentTimeMarkFuncType new_func);
+
+void setAutomaticTimeMark(TimeMark* timemark);
+
+
+
+
+
+typedef
+enum TSTimeModel
+{
+  NotUseTSTime,
+  LinearTSTime,
+  DistributedTSTime
+} TSTimeModel;
+
+TSTimeModel setTSTimeModel(TSTimeModel time_model);
+TSTimeModel getTSTimeModel(void);
+# 36 "/home/qrs/opt/modelverify/include/ts/generated.h" 2
+# 45 "/home/qrs/opt/modelverify/include/ts/generated.h"
+typedef struct CallProperties CallProperties;
+
+struct CallProperties
+{
+  bool verdict;
+  TimeInterval time;
+};
+
+
+
+
+
+typedef long InteractionId;
+
+
+
+
+
+typedef struct OracleCallProperties OracleCallProperties;
+
+struct OracleCallProperties
+{
+  InteractionId refId;
+  bool verdict;
+};
+
+
+
+
+
+void setOracleVerdict(bool verdict);
+bool getOracleVerdict(void);
+void clearOracleVerdict(void);
+
+
+
+
+
+typedef enum OracleVerdict
+{
+  OracleVerdict_Ok,
+  OracleVerdict_PreconditionFailed,
+  OracleVerdict_PostconditionFailed
+}
+OracleVerdict;
+
+typedef struct CallContextStruct
+{
+  Object* params;
+  TimeInterval time;
+  InteractionId refId;
+}
+CallContextType;
+
+typedef bool (*PreFuncType)(Object* params);
+
+typedef OracleVerdict (*CallPureOracleFuncType)(CallContextType);
+
+
+
+
+
+typedef void (*TraceModelOperationFuncType)(InteractionId,Object*,ChannelID,TimeInterval);
+
+
+
+
+
+typedef struct SpecificationDesc
+{
+  const char* name;
+  const char* subsystem;
+  const char* signature;
+  PreFuncType precondition;
+  CallPureOracleFuncType call_pure_oracle;
+  TraceModelOperationFuncType trace_model_operation;
+  bool is_reaction;
+  const Type* par_res_type;
+}
+SpecificationDesc;
+
+
+
+
+
+typedef SpecificationDesc* SpecificationID;
+# 139 "/home/qrs/opt/modelverify/include/ts/generated.h"
+typedef Object* (*PtrActionInit)(void);
+
+
+
+
+
+
+typedef bool (*PtrActionHasNext)(Object*);
+
+
+
+
+
+typedef bool (*PtrActionNext)(Object*);
+
+
+
+
+
+typedef bool (*PtrActionCall)(Object*);
+
+
+
+
+
+typedef struct
+{
+  PtrActionInit init;
+  PtrActionHasNext has_next;
+  PtrActionNext next;
+  PtrActionCall call;
+  const char* name;
+} ScenarioFunctionDesc;
+
+
+
+
+
+typedef ScenarioFunctionDesc* ScenarioFunctionID;
+
+
+
+
+
+void ts_trace_model_operation_timestamp(TimeInterval timestamp);
+void ts_trace_bad_oracle_verdict(void);
+void ts_trace_bad_mediator_verdict(void);
+
+
+
+
+
+Object** ts_cast_spec_ref_lvalue(const Type* type,Object** ref);
+Object* ts_cast_spec_ref(const Type* type,Object* ref);
+Object* ts_check_spec_ref(const Type* type,Object* ref,const char* kind,const char* where);
+
+
+
+
+
+Object* ts_assign_spec_ref(Object** left,Object* right,const char* where);
+void* ts_destroy_spec_ref(Object* ref);
+
+
+
+
+
+void _dummy(void* p);
+Object* singletonState(void);
+
+
+
+
+
+void setCheckPrecondition( bool check );
+bool getCheckPrecondition(void);
+
+
+
+
+
+void setCheckPostcondition( bool check );
+bool getCheckPostcondition(void);
+
+
+
+
+extern const char PRECONDITION_FAILED_MESSAGE[];
+extern const char POSTCONDITION_FAILED_MESSAGE[];
+extern const char SCENARIO_FUNCTION_FAILED_MESSAGE[];
+extern const char INCORRECT_SET_OF_INTERACTIONS_MESSAGE[];
+extern const char MEDIATOR_FAILED_MESSAGE[];
+extern const char UNCONNECTED_GRAPH_MESSAGE[];
+extern const char NONDETERMINISTIC_GRAPH_MESSAGE[];
+extern const char SCENARIO_INITIALIZATION_FAILED_MESSAGE[];
+extern const char SERIALIZATION_FAILED_MESSAGE[];
+extern const char NONSTATIONARY_STATE_MESSAGE[];
+
+
+
+
+
+
+#pragma SEC force_use_end
+# 44 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+
+# 1 "/home/qrs/opt/modelverify/include/ts/register.h" 1
+# 41 "/home/qrs/opt/modelverify/include/ts/register.h"
+void registerReaction(
+         ChannelID chid,
+         const char* name,
+         SpecificationID reactionID,
+         Object* data
+                     );
+
+void registerReactionWithTimeMark(
+         ChannelID chid,
+         const char* name,
+         SpecificationID reactionID,
+         Object* data,
+         TimeMark mark
+                                 );
+
+void registerReactionWithTimeInterval(
+         ChannelID chid,
+         const char* name,
+         SpecificationID reactionID,
+         Object* data,
+         TimeInterval interval
+                                     );
+
+
+
+
+
+void registerWrongReaction(const char* info);
+
+
+
+
+
+typedef bool (*ReactionCatcherFuncType)(void*);
+
+void registerReactionCatcher(ReactionCatcherFuncType catcher,void* par);
+bool unregisterReactionCatcher(ReactionCatcherFuncType catcher,void* par);
+bool unregisterReactionCatchers(ReactionCatcherFuncType catcher);
+
+
+
+
+
+ChannelID setStimulusChannel(ChannelID chid);
+ChannelID getStimulusChannel(void);
+
+void registerStimulus(
+         const char* name,
+         SpecificationID stimulusID,
+         Object* data,
+         TimeInterval interval
+                     );
+
+
+
+
+
+
+void registerStimulusWithTimeInterval(
+         ChannelID chid,
+         const char* name,
+         SpecificationID stimulusID,
+         TimeInterval interval,
+         ...
+                                     );
+# 46 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+# 1 "/home/qrs/opt/modelverify/include/ts/engine.h" 1
+# 28 "/home/qrs/opt/modelverify/include/ts/engine.h"
+# 1 "/usr/include/time.h" 1 3 4
+# 29 "/usr/include/time.h" 3 4
+
+
+
+
+
+
+
+
+# 1 "/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h" 1 3 4
+# 38 "/usr/include/time.h" 2 3 4
+
+
+
+# 1 "/usr/include/i386-linux-gnu/bits/time.h" 1 3 4
+# 42 "/usr/include/time.h" 2 3 4
+# 57 "/usr/include/time.h" 3 4
+
+
+
+# 59 "/usr/include/time.h" 3 4
+typedef __clock_t clock_t;
+
+# 73 "/usr/include/time.h" 3 4
+
+
+typedef __time_t time_t;
+
+# 131 "/usr/include/time.h" 3 4
+
+
+struct tm
+{
+  int tm_sec;
+  int tm_min;
+  int tm_hour;
+  int tm_mday;
+  int tm_mon;
+  int tm_year;
+  int tm_wday;
+  int tm_yday;
+  int tm_isdst;
+
+
+
+
+
+  long int __tm_gmtoff;
+  const char *__tm_zone;
+
+};
+
+# 186 "/usr/include/time.h" 3 4
+
+
+
+extern clock_t clock (void) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern time_t time (time_t *__timer) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern double difftime (time_t __time1, time_t __time0)
+     __attribute__ ((__nothrow__ , __leaf__)) __attribute__ ((
+# 196 "/usr/include/time.h"
+                            const
+# 196 "/usr/include/time.h" 3 4
+                                     ));
+
+
+extern time_t mktime (struct tm *__tp) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+
+
+extern size_t strftime (char *
+# 205 "/usr/include/time.h"
+                             __restrict__ 
+# 205 "/usr/include/time.h" 3 4
+                                        __s, size_t __maxsize,
+   const char *
+# 206 "/usr/include/time.h"
+              __restrict__ 
+# 206 "/usr/include/time.h" 3 4
+                         __format,
+   const struct tm *
+# 207 "/usr/include/time.h"
+                   __restrict__ 
+# 207 "/usr/include/time.h" 3 4
+                              __tp) __attribute__ ((__nothrow__ , __leaf__));
+
+# 236 "/usr/include/time.h" 3 4
+
+
+
+extern struct tm *gmtime (const time_t *__timer) __attribute__ ((__nothrow__ , __leaf__));
+
+
+
+extern struct tm *localtime (const time_t *__timer) __attribute__ ((__nothrow__ , __leaf__));
+
+# 258 "/usr/include/time.h" 3 4
+
+
+
+extern char *asctime (const struct tm *__tp) __attribute__ ((__nothrow__ , __leaf__));
+
+
+extern char *ctime (const time_t *__timer) __attribute__ ((__nothrow__ , __leaf__));
+
+# 282 "/usr/include/time.h" 3 4
+extern char *__tzname[2];
+extern int __daylight;
+extern long int __timezone;
+# 430 "/usr/include/time.h" 3 4
+
+# 29 "/home/qrs/opt/modelverify/include/ts/engine.h" 2
+# 63 "/home/qrs/opt/modelverify/include/ts/engine.h"
+
+# 63 "/home/qrs/opt/modelverify/include/ts/engine.h"
+typedef
+enum
+{
+    TD_ok,
+    TD_bad_parameters,
+    TD_not_enough_resources,
+    TD_bad_verdict,
+    TD_faulted,
+    ORACLE_bad_verdict
+}
+TestVerdict;
+
+extern TestVerdict testVerdict;
+
+
+
+
+
+typedef
+enum
+{
+  UNTIL_ERROR,
+  UNTIL_END
+} FinishMode;
+
+FinishMode setFinishMode(FinishMode finish_mode);
+FinishMode getFinishMode(void);
+int setNumberOfErrorsToFinish(int error_number);
+
+
+
+
+
+typedef
+enum TSMode
+{
+  SequentialTSMode,
+  ParallelTSMode
+}
+TSMode;
+
+TSMode getTSMode(void);
+
+
+
+
+
+bool setDeferredReactionsMode(bool enable);
+bool areDeferredReactionsEnabled(void);
+
+
+
+
+
+time_t setWTime(time_t secs);
+time_t setWTimeMSec(time_t millisecs);
+time_t getWTime(void);
+time_t getWTimeMSec(void);
+
+
+
+
+
+bool setFindFirstSeriesOnly(bool new_value);
+bool isFindFirstSeriesOnly(void);
+int setFindFirstSeriesOnlyBound(int bound);
+int getFindFirstSeriesOnlyBound(void);
+
+
+
+
+void ts_assert_function(const char* format, va_list arg_list);
+
+
+
+
+
+bool startTestSystem(int argc, char** argv);
+void stopTestSystem(void);
+
+
+
+
+
+const char* getCurrentTestScenarioName(void);
+# 156 "/home/qrs/opt/modelverify/include/ts/engine.h"
+typedef bool (*PtrIsStationaryState)(void);
+
+
+
+
+
+typedef Object* (*PtrSaveModelState)(void);
+
+
+
+
+
+typedef void (*PtrRestoreModelState)(Object*);
+
+
+
+
+
+typedef void (*PtrObserveState)(void);
+
+
+
+
+
+typedef void (*PtrDoneEvent)(void);
+
+
+typedef struct ModelStateManager
+{
+  PtrSaveModelState saveModelState;
+  PtrRestoreModelState restoreModelState;
+  PtrIsStationaryState isStationaryState;
+  PtrObserveState observeState;
+} ModelStateManager;
+# 47 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+# 1 "/home/qrs/opt/modelverify/include/ts/dfsm.h" 1
+# 35 "/home/qrs/opt/modelverify/include/ts/dfsm.h"
+# 1 "/home/qrs/opt/modelverify/include/ts/scenario.h" 1
+       
+# 17 "/home/qrs/opt/modelverify/include/ts/scenario.h"
+typedef bool (*TS_Init)(int, char**);
+
+
+
+
+typedef void (*TS_Finish)(void);
+
+
+
+
+typedef Object* (*TS_GetState)(void);
+
+
+
+
+typedef String* (*TS_GetStateId)(Object*);
+
+
+
+
+typedef bool (*TS_IsStationaryState)(void);
+
+
+
+
+typedef Object* (*TS_SaveModelState)(void);
+
+
+
+
+typedef void (*TS_RestoreModelState)(Object*);
+
+
+
+
+typedef void (*TS_ObserveState)(void);
+
+
+
+
+typedef struct TestScenario
+{
+
+    const char* name;
+
+    TS_Init init;
+
+    TS_GetState getState;
+
+    TS_GetStateId getStateId;
+
+    TS_SaveModelState saveModelState;
+
+    TS_RestoreModelState restoreModelState;
+
+    TS_IsStationaryState isStationaryState;
+
+    TS_ObserveState observeState;
+
+    TS_Finish finish;
+
+    ScenarioFunctionID* actions;
+} TestScenario;
+
+
+
+
+String* getStateId_Default(Object *obj);
+# 36 "/home/qrs/opt/modelverify/include/ts/dfsm.h" 2
+
+
+
+
+
+
+typedef bool (*PtrInit)(int, char**);
+
+
+
+
+typedef void (*PtrFinish)(void);
+# 56 "/home/qrs/opt/modelverify/include/ts/dfsm.h"
+typedef Object* (*PtrGetState)(void);
+
+typedef String* (*PtrGetStateId)(Object*);
+
+
+
+
+
+typedef TestScenario dfsm;
+# 73 "/home/qrs/opt/modelverify/include/ts/dfsm.h"
+bool start_dfsm(int argc, char** argv, dfsm* td);
+# 48 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+# 1 "/home/qrs/opt/modelverify/include/ts/ndfsm.h" 1
+# 43 "/home/qrs/opt/modelverify/include/ts/ndfsm.h"
+typedef TestScenario ndfsm;
+
+
+
+
+
+bool start_ndfsm(int argc, char** argv, ndfsm* test);
+# 49 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+
+
+# 1 "/home/qrs/opt/modelverify/include/atl/unit.h" 1
+# 33 "/home/qrs/opt/modelverify/include/atl/unit.h"
+#pragma SEC file
+  specification typedef void Unit;
+# 45 "/home/qrs/opt/modelverify/include/atl/unit.h"
+Unit* create_Unit();
+# 52 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+# 1 "/home/qrs/opt/modelverify/include/atl/string.h" 1
+# 53 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+
+# 1 "/home/qrs/opt/modelverify/include/c_tracer/c_tracer.h" 1
+# 28 "/home/qrs/opt/modelverify/include/c_tracer/c_tracer.h"
+typedef int c_bool;
+# 38 "/home/qrs/opt/modelverify/include/c_tracer/c_tracer.h"
+  void setTraceUserEnv(const char *name, const char *value);
+
+
+
+
+  void setTraceEncoding(const char *encoding);
+
+  void setTraceDataFormatXML();
+  void setTraceDataFormatString();
+
+
+
+
+  c_bool addTraceToConsole(void);
+  c_bool removeTraceToConsole(void);
+
+  c_bool addTraceToFile(const char *name);
+  c_bool removeTraceToFile(const char *name);
+
+  c_bool isTraceEnabled(void);
+
+  c_bool setTraceAccidental(c_bool enable);
+
+
+
+
+  void startTrace(void);
+  void endTrace(void);
+
+
+
+
+  void traceScenarioStart(const char* name);
+  void traceScenarioParameters(int argc, const char** argv);
+  void traceTestEngineProperty(const char* name,const char* value);
+  void traceScenarioEnd(void);
+
+
+
+
+
+  void traceScenarioValue (const char *kind, const char *type, const char *name, const char *value);
+  void traceState(const char *id);
+  void traceTransitionStart(const char *id);
+  void traceTransitionEnd(void);
+
+
+
+
+  void traceModelOperationStart(const char *kind,const char *subsystem,const char *signature);
+  void traceModelOperationArgument(const char *type, const char *name, const char *value);
+  void traceModelOperationResult(const char *type, const char *value);
+  void traceModelOperationIdentifier(long id);
+  void traceModelOperationChannel(long chid);
+  void traceModelOperationTimestamp(const char *timestamp);
+  void traceOracleStart(const char *subsystem,const char *signature, long refId);
+  void tracePreconditionEnd(void);
+  void traceOracleEnd(void);
+  void traceModelOperationEnd(void);
+  void traceSeriesStart(void);
+  void traceSeriesEnd(void);
+
+
+
+
+  void tracePrimeFormula(int id, c_bool value);
+  void traceCoverageElement(const char *structureId, const char *coverageId, int branchId);
+  void traceMark(const char *mark);
+
+  void traceCoverageStructureStart(const char* name);
+  void traceFormulaeStart(void);
+  void traceFormula(int id, const char *text);
+  void traceFormulaeEnd(void);
+  void traceCoverageStart(const char *id);
+  void traceElement(int id, const char *name);
+  void traceCoverageEnd(void);
+  void traceCoverageStructureEnd(void);
+
+
+
+
+  void traceException(const char *kind);
+  void traceInterimException(const char *kind);
+  void traceExceptionValue(const char *name, const char *value);
+  void traceExceptionInfo(const char *info);
+  void traceInternalError(const char *info);
+  void traceSystemInfo(const char *info);
+  void traceUserInfo(const char *info);
+  void traceFormattedUserInfo(const char *format,...);
+
+
+
+
+
+  c_bool isInTrace(void);
+  c_bool isInScenario(void);
+  c_bool isInTransition(void);
+  c_bool isInSeries(void);
+  c_bool isInModelOperation(void);
+  c_bool isInOracle(void);
+  c_bool isInPrecondition(void);
+  c_bool isInCoverageStructure(void);
+  c_bool isInFormulae(void);
+  c_bool isInCoverage(void);
+  int getTraceId(void);
+
+
+
+
+  void flushTrace(void);
+  void closeTrace(void);
+# 55 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+
+# 1 "/home/qrs/opt/modelverify/include/ts/coverage.h" 1
+# 25 "/home/qrs/opt/modelverify/include/ts/coverage.h"
+typedef const char* CoverageText;
+
+typedef int CoverageElement;
+
+typedef enum
+{ PRIMARY_COVERAGE
+, DOMAIN_VARIATION_COVERAGE
+, MULTIPLICATION_COVERAGE
+}
+COVERAGE_KIND;
+
+
+
+typedef struct _CoverageDesc
+{
+    COVERAGE_KIND kind;
+
+
+
+
+    int size;
+
+
+
+
+
+    int base_num;
+    int order;
+
+
+    bool is_global;
+    int last_trace_id;
+    CoverageText name;
+    CoverageElement (*calc)( );
+    bool (*filter)( CoverageElement );
+    const void* data[];
+}
+CoverageDesc;
+# 91 "/home/qrs/opt/modelverify/include/ts/coverage.h"
+extern int _CE_OUT_OF_COVERAGE;
+
+const CoverageDesc* cov_component( const CoverageDesc* cov_desc, int a );
+
+CoverageElement ce_product( const CoverageDesc* cov_desc, ... );
+
+CoverageElement ce_coord( const CoverageDesc* cov_desc
+                        , CoverageElement element
+                        , int axis
+                        , CoverageDesc** p_prim_cov_desc
+                        );
+
+CoverageText ce_txt( const CoverageDesc* cov_desc, CoverageElement elem );
+
+bool isElementInCoverage( const CoverageDesc* cov_desc, int element );
+
+void traceReachedCoverageElement( CoverageDesc* cov_desc, int element );
+
+void traceCoverageStructure( CoverageDesc* cov_desc );
+# 57 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+
+
+
+
+
+
+# 1 "/home/qrs/opt/modelverify/include/ts/version.hh" 1
+# 64 "/home/qrs/opt/modelverify/include/ts/ts.h" 2
+
+
+
+
+
+const char* ts_get_ctesk_version(void);
+const char* ts_get_ctesk_build(void);
+
+
+
+
+
+void setBadVerdict(const char *msg);
+bool isBadVerdict(void);
+void clearBadVerdict(void);
+
+
+
+
+
+enum TS_Verdict
+{
+  TS_VERDICT_PRE = 1,
+  TS_VERDICT_POST = 2,
+  TS_VERDICT_MEDIATOR = 4,
+  TS_VERDICT_SCENARIO = 8,
+  TS_VERDICT_ALL = 15
+};
+
+typedef void (*VerdictEventHandler)( bool verdict );
+
+void ts_set_verdict_event_handler( enum TS_Verdict ts_verdict_flags, VerdictEventHandler handler );
+void ts_fire_verdict_event( enum TS_Verdict ts_verdict_flag, bool verdict );
+
+
+#pragma SEC force_use_end
+# 1 "<command-line>" 2
+# 1 "pqueue_scenario.sec"
+# 14 "pqueue_scenario.sec"
+# 1 "pqueue_scenario.seh" 1
+# 21 "pqueue_scenario.seh"
+scenario dfsm pqueue_scenario;
+# 15 "pqueue_scenario.sec" 2
+# 1 "pqueue_model.seh" 1
+# 23 "pqueue_model.seh"
+# 1 "/home/qrs/opt/modelverify/include/atl/void_ast.h" 1
+# 33 "/home/qrs/opt/modelverify/include/atl/void_ast.h"
+#pragma SEC file
+  specification typedef void* VoidAst;
+# 45 "/home/qrs/opt/modelverify/include/atl/void_ast.h"
+VoidAst *create_VoidAst( void *d );
+
+
+
+
+void *value_VoidAst( VoidAst *d );
+# 24 "pqueue_model.seh" 2
+# 1 "/home/qrs/opt/modelverify/include/atl/list.h" 1
+# 35 "/home/qrs/opt/modelverify/include/atl/list.h"
+#pragma SEC file
+  specification typedef struct List List;
+
+
+
+
+
+
+# 1 "/home/qrs/opt/modelverify/include/atl/set.h" 1
+# 36 "/home/qrs/opt/modelverify/include/atl/set.h"
+#pragma SEC file
+  specification typedef struct Set Set;
+
+
+
+
+
+
+# 1 "/home/qrs/opt/modelverify/include/atl/list.h" 1
+# 45 "/home/qrs/opt/modelverify/include/atl/set.h" 2
+
+
+
+
+
+
+
+Set *create_Set( const Type* elem_type );
+
+
+
+
+Set *createCustomized_Set( const Type *elem_type, int initialCapacity );
+
+
+
+
+int size_Set( Set *self );
+
+
+
+
+bool isEmpty_Set( Set *self );
+
+
+
+
+bool contains_Set( Set *self, Object *ref );
+
+
+
+
+bool add_Set( Set *self, Object *ref );
+
+
+
+
+bool remove_Set( Set *self, Object *ref );
+
+
+
+
+bool containsAll_Set( Set *self, Set *set );
+
+
+
+
+bool addAll_Set( Set *self, Set *set );
+
+
+
+
+bool retainAll_Set( Set *self, Set *set );
+
+
+
+
+bool removeAll_Set( Set *self, Set *set );
+
+
+
+
+void clear_Set( Set *self );
+
+
+
+
+
+Object *get_Set( Set *self, int index );
+
+
+
+
+List *toList_Set( Set *self );
+
+
+
+
+Type *elemType_Set (Set *self);
+# 44 "/home/qrs/opt/modelverify/include/atl/list.h" 2
+# 52 "/home/qrs/opt/modelverify/include/atl/list.h"
+List *create_List( const Type *elem_type );
+
+
+
+
+
+List *createCustomized_List( const Type *elem_type, int initialCapacity );
+
+
+
+
+void add_List( List *self, int index, Object *ref );
+
+
+
+
+void append_List( List *self, Object *ref );
+
+
+
+
+void clear_List( List *self );
+
+
+
+
+
+bool contains_List( List *self, Object *ref );
+
+
+
+
+Object *get_List( List *self, int index );
+
+
+
+
+
+
+int indexOf_List( List *self, Object *ref );
+
+
+
+
+bool isEmpty_List( List *self );
+
+
+
+
+
+
+int lastIndexOf_List( List *self, Object *ref );
+
+
+
+
+void remove_List( List *self, int index );
+
+
+
+
+
+void set_List( List *self, int index, Object *ref );
+
+
+
+
+int size_List( List *self );
+
+
+
+
+
+List *subList_List( List *self, int fromIndex, int toIndex );
+
+
+
+
+void addAll_List(List *self, int index, List *other);
+
+
+
+
+void appendAll_List(List *self, List *other);
+
+
+
+
+Set *toSet_List(List *self);
+
+
+
+
+
+Type *elemType_List (List *self);
+# 25 "pqueue_model.seh" 2
+
+
+
+
+
+invariant typedef void* Item;
+
+
+
+
+
+invariant typedef List Queue;
+# 45 "pqueue_model.seh"
+extern Queue* low;
+extern Queue* high;
+# 56 "pqueue_model.seh"
+specification void enq_spec(Item item)
+     reads item
+     reads high
+     updates low
+;
+# 69 "pqueue_model.seh"
+specification void enqp_spec(Item item)
+     reads item
+     updates high
+     reads low
+;
+# 88 "pqueue_model.seh"
+specification void* deq_spec(void)
+     updates high
+     updates low
+;
+# 16 "pqueue_scenario.sec" 2
+# 1 "pqueue_media.seh" 1
+# 19 "pqueue_media.seh"
+mediator enq_media for specification void enq_spec(Item item)
+     reads item
+     reads high
+     updates low
+;
+
+mediator enqp_media for specification void enqp_spec(Item item)
+     reads item
+     updates high
+     reads low
+;
+
+mediator deq_media for specification void *deq_spec(void)
+     updates high
+     updates low
+;
+# 17 "pqueue_scenario.sec" 2
+
+# 1 "/home/qrs/opt/modelverify/include/atl/integer.h" 1
+# 34 "/home/qrs/opt/modelverify/include/atl/integer.h"
+#pragma SEC file
+  specification typedef signed int Integer;
+  specification typedef unsigned int UInteger;
+# 49 "/home/qrs/opt/modelverify/include/atl/integer.h"
+Integer *create_Integer( int i );
+
+
+
+
+
+UInteger *create_UInteger( unsigned int i );
+
+
+
+
+int value_Integer( Integer *i );
+
+
+
+
+unsigned int value_UInteger( UInteger *i );
+# 19 "pqueue_scenario.sec" 2
+
+
+# 1 "/home/qrs/opt/modelverify/include/utils/define.h" 1
+# 22 "pqueue_scenario.sec" 2
+
+
+# 1 "/home/qrs/opt/modelverify/include/utils/undef.h" 1
+# 25 "pqueue_scenario.sec" 2
+
+
+
+
+static char par_name_queue_size[] = "queue_size";
+static char par_name_items_num[] = "items_num";
+
+static int queue_size = 5;
+static int items_num = 1;
+
+
+
+
+static Item* items;
+# 47 "pqueue_scenario.sec"
+static bool initPQueue(int argc, char **argv) {
+
+  int i = 1;
+
+  while (i < argc - 1) {
+    if (!strcmp(argv[i], par_name_queue_size))
+      { queue_size = atoi(argv[i+1]); i+= 2; }
+    else if (!strcmp(argv[i], par_name_items_num))
+      { items_num = atoi(argv[i+1]); i+= 2; }
+    else
+      i++;
+  }
+
+  if (queue_size <= 0)
+   {
+    printf("Error: queue_size (%d) should be positive", queue_size);
+    return 0;
+   }
+  if (items_num <= 0)
+   {
+    printf("Error: items_num (%d) should be positive", items_num);
+    return 0;
+   }
+
+  items = calloc(items_num, sizeof(Item));
+  for (i = 0; i < items_num; items[i++] = malloc(sizeof(Item)));
+
+  low = (Queue*)create_List(&type_VoidAst);
+  high = (Queue*)create_List(&type_VoidAst);
+
+  set_mediator_enq_spec(enq_media);
+  set_mediator_enqp_spec(enqp_media);
+  set_mediator_deq_spec(deq_media);
+
+  return 1;
+}
+
+
+
+
+static void finishPQueue() {
+  int i;
+
+  high = 
+# 90 "pqueue_scenario.sec" 3 4
+        ((void *)0)
+# 90 "pqueue_scenario.sec"
+            ;
+  low = 
+# 91 "pqueue_scenario.sec" 3 4
+       ((void *)0)
+# 91 "pqueue_scenario.sec"
+           ;
+
+  for (i = 0; i < items_num; free(items[i++]));
+  free(items);
+}
+
+
+
+
+specification typedef struct {
+  int h;
+  int l;
+} IntPair = {};
+
+IntPair* create_IntPair( int h, int l ) {
+  return create(&type_IntPair, h, l);
+}
+
+
+
+
+static IntPair* statePQueue() {
+  return create_IntPair(size_List(high), size_List(low));
+}
+
+
+
+
+scenario bool enq_scen() {
+  iterate(int i=0; i<queue_size; i++; size_List(low) < queue_size)
+    enq_spec(create_Integer(i));
+  return 1;
+}
+
+
+
+
+scenario bool enqp_scen() {
+  iterate(int i=0; i<queue_size; i++; size_List(high) < queue_size)
+    enqp_spec(create_Integer(i));
+  return 1;
+}
+
+
+
+
+scenario bool deq_scen() {
+  deq_spec();
+  return 1;
+}
+
+
+
+
+scenario dfsm pqueue_scenario = {
+  .init = (PtrInit)initPQueue,
+  .getState = (PtrGetState)statePQueue,
+  .finish = (PtrFinish)finishPQueue,
+  .actions = {
+    enq_scen,
+    enqp_scen,
+    deq_scen,
+    
+# 153 "pqueue_scenario.sec" 3 4
+   ((void *)0)
+  
+# 154 "pqueue_scenario.sec"
+ }
+};

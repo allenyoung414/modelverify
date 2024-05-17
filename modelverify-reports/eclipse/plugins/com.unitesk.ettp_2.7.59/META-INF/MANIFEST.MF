@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.5.3 
+Created-By: 1.5.0-b64 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+Bundle-Name: UniTESK Reports Plug-in
+Bundle-SymbolicName: com.unitesk.ettp; singleton:=true
+Bundle-Version: 2.7.59
+Bundle-Activator: com.unitesk.ettp.TraceToolsPlugin
+Bundle-Vendor: UniTESK Lab, ISP RAS
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.co
+ re.resources,org.eclipse.ui.ide,org.eclipse.ui.views,org.eclipse.ui.w
+ orkbench.texteditor,org.eclipse.gef,org.eclipse.ui.editors,org.eclips
+ e.jface.text,org.eclipse.ui.console,org.eclipse.search,org.eclipse.ws
+ t.sse.ui;resolution:=optional
+Eclipse-AutoStart: true
+Bundle-ClassPath: ./lib/com.unitesk.ettp.jar,./lib/commons-cli.jar,./l
+ ib/commons-collections.jar,./lib/stax-api.jar,./lib/ehcache.jar,./lib
+ /antlr.jar,./lib/velocity.jar,./lib/wstx-asl.jar,./lib/atplib.jar,./l
+ ib/trace-analyzer.jar,./lib/stargen.jar,./lib/commons-logging.jar,./l
+ ib/dom4j.jar
+Export-Package: com.unitesk.ettp,com.unitesk.ettp.actions,com.unitesk.
+ ettp.editors.utt,com.unitesk.ettp.editors.utt.fsm,com.unitesk.ettp.ed
+ itors.utt.msc,com.unitesk.ettp.models.tests,com.unitesk.ettp.models.t
+ ree,com.unitesk.ettp.prefs,com.unitesk.ettp.utils,com.unitesk.ettp.vi
+ ews,com.unitesk.ettp.widgets
+

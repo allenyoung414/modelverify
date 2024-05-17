@@ -1,0 +1,23 @@
+/* 
+ * File: pqueue_scenario.seh
+ * Description: 
+ *       This file contains a declaration of a test scenario 
+ *       of the queue with priorities.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#ifndef __PQUEUE_SCENARIO_SEH__
+#define __PQUEUE_SCENARIO_SEH__
+
+
+/*
+ * The declaration of 'pqueue_scenario' test scenario.
+ */ 
+scenario dfsm pqueue_scenario;
+
+#endif

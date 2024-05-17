@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.0
+Created-By: 1.5.0_06-b05 (Sun Microsystems Inc.)
+Bundle-ManifestVersion: 2
+Bundle-Name: CTESK Lib Plug-in
+Bundle-SymbolicName: com.unitesk.secdt.lib
+Bundle-Version: 2.9.315
+Bundle-Vendor: UniTESK Lab, ISP RAS
+Bundle-Localization: plugin
+Bundle-ClassPath: sec.jar,
+  atplib.jar
+Export-Package: com.unitesk.atp.dynattrs,
+ com.unitesk.atp.messages,
+ com.unitesk.atp.text.location,
+ com.unitesk.atp.tool,
+ com.unitesk.atp.tree,
+ com.unitesk.atp.tree.tool,
+ ru.ispras.redverst.frontend.se.c,
+ ru.ispras.redverst.se.c

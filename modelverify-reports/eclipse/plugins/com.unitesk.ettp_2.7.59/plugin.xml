@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+<!-- Earlier startup required -->
+<extension point="org.eclipse.ui.startup">
+     <!-- <startup class="com.unitesk.ettp.Startup"/> -->
+</extension>
+
+<!-- Content types -->
+<extension point="org.eclipse.core.runtime.contentTypes">
+  <content-type
+        base-type="org.eclipse.core.runtime.xml"
+        file-extensions="utt"
+        id="trace"
+        name="%trace.name"
+        priority="high"/>
+  <content-type
+        file-extensions="utz"
+        id="zipTrace"
+        name="%zipTrace.name"
+        priority="high"/>
+</extension>
+
+<!-- Popup menu actions -->
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="com.unitesk.ettp.contribution.object.file.Trace"
+            objectClass="org.eclipse.core.resources.IFile"
+            adaptable="true">
+         <action
+               tooltip="%action.Trace.AddToSet.tooltip"
+               label="%action.Trace.AddToSet.label"
+               style="pulldown"
+               class="com.unitesk.ettp.actions.AddToSetAction"
+               menubarPath="additions"
+               enablesFor="+"
+               id="com.unitesk.ettp.action.Trace.AddToSet">
+         </action>                  
+         <action
+               class="com.unitesk.ettp.actions.GenerateReportAction"
+               enablesFor="+"
+               id="com.unitesk.ettp.action.Trace.GenerateReport"
+               tooltip="%action.Trace.GenerateReport.tooltip"
+               label="%action.Trace.GenerateReport.label"
+               menubarPath="additions"/>
+         <action
+               label="%action.Trace.OpenTest.label"
+               tooltip="%action.Trace.OpenTest.tooltip"
+               enablesFor="+"
+               class="com.unitesk.ettp.actions.OpenTestForTraceAction"
+               menubarPath="additions"
+               id="com.unitesk.ettp.action.Trace.OpenTest">
+         </action>
+         <visibility>
+            <or>
+               <objectState
+                     name="contentTypeId"
+                     value="com.unitesk.ettp.trace">
+               </objectState>
+               <objectState
+                     name="contentTypeId"
+                     value="com.unitesk.ettp.zipTrace">
+               </objectState>
+            </or>
+         </visibility>       
+      </objectContribution>   
+      <objectContribution
+            id="com.unitesk.ettp.contribution.object.TestResults.Trace"
+            objectClass="com.unitesk.ettp.models.tests.TraceElement">
+         <action
+               label="%action.Trace.AddToSet.label"
+               tooltip="%action.Trace.AddToSet.tooltip"
+               style="pulldown"
+               class="com.unitesk.ettp.actions.AddToSetAction"
+               menubarPath="additions"
+               enablesFor="+"
+               id="com.unitesk.ettp.action.Trace.AddToSet">
+         </action>                  
+         <action
+               class="com.unitesk.ettp.actions.GenerateReportAction"
+               enablesFor="+"
+               id="com.unitesk.ettp.action.Trace.GenerateReport"
+               tooltip="%action.Trace.GenerateReport.tooltip"
+               label="%action.Trace.GenerateReport.label"/>
+         <action
+               label="%action.Trace.OpenTest.label"
+               tooltip="%action.Trace.OpenTest.tooltip"
+               enablesFor="+"
+               class="com.unitesk.ettp.actions.OpenTestForTraceAction"
+               menubarPath="additions"
+               id="com.unitesk.ettp.action.Trace.OpenTest">
+         </action>
+      </objectContribution>   
+      <objectContribution
+            id="com.unitesk.ettp.contribution.object.TestResultSets.Trace"
+            objectClass="com.unitesk.ettp.models.tests.TestResultSetsModel$TraceNode">
+         <action
+               label="%action.Trace.AddToSet.label"
+               tooltip="%action.Trace.AddToSet.tooltip"
+               style="pulldown"
+               class="com.unitesk.ettp.actions.AddToSetAction"
+               menubarPath="additions"
+               enablesFor="+"
+               id="com.unitesk.ettp.action.Trace.AddToSet">
+         </action>                  
+         <action
+               class="com.unitesk.ettp.actions.GenerateReportAction"
+               enablesFor="+"
+               id="com.unitesk.ettp.action.Trace.GenerateReport"
+               label="%action.Trace.GenerateReport.label"
+               tooltip="%action.Trace.GenerateReport.tooltip"
+               />
+         <action
+               label="%action.Trace.OpenTest.label"
+               tooltip="%action.Trace.OpenTest.tooltip"
+               enablesFor="+"
+               class="com.unitesk.ettp.actions.OpenTestForTraceAction"
+               menubarPath="additions"
+               id="com.unitesk.ettp.action.Trace.OpenTest"/>
+      </objectContribution>
+   </extension>
+
+<!-- Commands -->
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            name="%command.Trace.Open.name"
+            description="%command.Trace.Open.description"
+            categoryId="org.eclipse.ui.category.navigate"
+            id="com.unitesk.ettp.command.Trace.Open">
+      </command>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            sequence="F3"
+            commandId="com.unitesk.ettp.command.Trace.Open"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="com.unitesk.ettp.context.UniteskView"/>
+   </extension>
+   
+    <extension
+        point="org.eclipse.ui.contexts">
+	    <context
+		    name="%context.UniteskView.name"
+		    description="%context.UniteskView.description"
+		    id="com.unitesk.ettp.context.UniteskView"
+		    parentId="org.eclipse.ui.contexts.window">
+	    </context>
+   </extension>
+
+
+<!-- Editors -->
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="com.unitesk.ettp.editors.utt.UniteskTraceViewer"
+            contributorClass="com.unitesk.ettp.editors.utt.UniteskTraceContributor"
+            icon="icons/editor.Trace.gif"
+            id="com.unitesk.ettp.editor.Trace"
+            name="%editor.Trace.name">
+         <contentTypeBinding
+               contentTypeId="com.unitesk.ettp.trace">
+         </contentTypeBinding>
+         <contentTypeBinding
+               contentTypeId="com.unitesk.ettp.zipTrace">
+         </contentTypeBinding>
+      </editor>
+   </extension>
+
+<!-- Preferences -->
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="%prefs.Unitesk.name"
+            class="com.unitesk.ettp.prefs.UniteskPreferencePage"
+            id="com.unitesk.ettp.prefs.Unitesk">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="com.unitesk.ettp.prefs.PreferenceInitializer"/>
+   </extension>
+   
+<!-- Views -->
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="com.unitesk.ettp.view.Unitesk"
+            name="%view.Unitesk.name"/>
+      <view
+            category="com.unitesk.ettp.view.Unitesk"
+            class="com.unitesk.ettp.views.TestResultsView"
+            icon="icons/view.Unitesk.TestResults.gif"
+            id="com.unitesk.ettp.view.Unitesk.TestResults"
+            name="%view.Unitesk.TestResults.name"/>
+      <view
+            category="com.unitesk.ettp.view.Unitesk"
+            class="com.unitesk.ettp.views.TestResultSetsView"
+            icon="icons/view.Unitesk.TestResultSets.gif"
+            id="com.unitesk.ettp.view.Unitesk.TestResultSets"
+            name="%view.Unitesk.TestResultSets.name"/>
+      <category
+            id="com.unitesk.ettp"
+            name="Sample Category"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.unitesk.ettp.TraceToolsPerspective"
+            fixed="false"
+            icon="icons/view.Unitesk.TestResults.gif"
+            id="com.unitesk.ettp.TraceToolsPerspective"
+            name="%perspective.Unitesk.name"/>
+   </extension>
+   <extension
+         point="org.eclipse.search.searchPages">
+      <page
+            canSearchEnclosingProjects="false"
+            class="com.unitesk.ettp.search.UniteskSearchPage"
+            enabled="true"
+            icon="icons/editor.Trace.gif"
+            id="com.unitesk.ettp.search.UniteskSearchPage"
+            label="%search.Unitesk.name"
+            showScopeSection="false"
+            sizeHint="460, 160"/>
+   </extension>
+   <extension
+         point="org.eclipse.search.searchResultViewPages">
+      <viewPage
+            class="com.unitesk.ettp.views.SearchView"
+            id="com.unitesk.ettp.views.SearchView"
+            searchResultClass="com.unitesk.ettp.search.UniteskSearchResult"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="org.eclipse.ui.resourcePerspective">
+         <view
+               id="com.unitesk.ettp.views.test.SampleView"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.TaskList"/>
+      </perspectiveExtension>
+   </extension>
+</plugin>

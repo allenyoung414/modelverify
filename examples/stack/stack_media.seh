@@ -1,0 +1,36 @@
+/* 
+ * File: stack_media.seh
+ * Description: 
+ *       This file contains a declaration of mediator functions
+ *       of the stack subsystem.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#ifndef __STACK_MEDIA_SEH__
+#define __STACK_MEDIA_SEH__
+
+#include "stack_model.seh"
+
+#include "stack.h"
+
+/*
+ * The implementation stack, which is used as pseudo implementation state.
+ */
+extern stack* impl_stack;
+
+
+mediator push_media for specification bool push_spec(int i)
+  updates stck
+;
+
+mediator pop_media for specification bool pop_spec(int* item)
+  updates stck
+  writes i = *item
+;
+
+#endif

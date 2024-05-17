@@ -1,0 +1,77 @@
+/* 
+ * File: account_scenario.sec
+ * Description: 
+ *       This file contains a definition of a test scenario 
+ *       for the simple account system testing.
+ *
+ * Copyright (c) 2003-2004 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#include "account_scenario.seh"
+#include "account_mediator.seh"
+
+#include <atl/integer.h>
+
+
+/*
+ * The test scenario state.
+ */ 
+AccountModel acct;
+
+
+/*
+ * The initialization function of the test scenario.
+ *
+ * It initializes scenario state and sets a mediator and an active coverage
+ * for each specification function tested by the scenario.
+ */ 
+static bool account_init (int argc, char **argv) {
+  acct.balance = 0;
+  set_mediator_deposit_spec( deposit_media );
+  set_mediator_withdraw_spec( withdraw_media );
+  return true;
+}
+
+/*
+ * The function that builds a state of the test scenario.
+ */
+static Integer* account_state() {
+  return create_Integer(acct.balance);
+}
+
+/*
+ * The scenario function that iterates parameters of deposit() function.
+ */
+scenario bool deposit_scen() {
+  if (acct.balance <= 5) {
+    iterate (int i = 1; i <= 5; i++;)
+      deposit_spec(&acct, i);
+  }
+  return true;
+}
+
+/*
+ * The scenario function that iterates parameters of withdraw() function.
+ */
+scenario bool withdraw_scen() {
+  iterate (int i = 1; i <= 5; i++;)
+    withdraw_spec(&acct, i);
+  return true;
+}
+
+/*
+ * The test scenario definition.
+ */
+scenario dfsm account_scenario = {
+  .init     = account_init,
+  .getState = (PtrGetState)account_state,
+  .actions  = {
+    deposit_scen,
+    withdraw_scen,
+    NULL
+  }
+};

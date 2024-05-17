@@ -1,0 +1,90 @@
+/* 
+ * File: stack_scenario.sec
+ * Description: 
+ *       This file contains a definition of a test scenario 
+ *       of the stack subsystem.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#include "stack_scenario.seh"
+
+#include "stack_model.seh"
+#include "stack_media.seh"
+#include "stack.h"
+
+#include <atl/integer.h>
+
+/*
+ * The initialization function of the test scenario.
+ *
+ * It initializes pseudo implementation state,
+ * initializes model state and
+ * sets a mediator for each specification function
+ * tested by the scenario.
+ */
+bool initStack(int argc, char** argv) {
+  impl_stack = create_stack(STACK_SIZE);
+  stck = create_List(&type_Integer);
+
+  set_mediator_push_spec(push_media);
+  set_mediator_pop_spec(pop_media);
+
+  return true;
+}
+
+/*
+ * The finalization function of the test scenario.
+ *
+ * It frees resources of pseudo implementation and model states.
+ */ 
+void finishStack() {
+  stck = NULL;
+  delete_stack(impl_stack);
+}
+
+/*
+ * The function that builds a state of the test scenario.
+ */
+Integer* stateStack() {
+  return create_Integer(size_List(stck));
+}
+
+/*
+ * The scenario function that iterates parameters of push_spec() function.
+ */
+scenario bool push_scen() {
+  iterate (int i = 0; i < 10; i++;) {
+    push_spec(i);
+  }
+  return true;
+}
+
+/*
+ * The scenario function that calls pop_spec() function.
+ */
+static int item;
+
+scenario bool pop_scen() {
+  pop_spec(&item);
+  return true;
+}
+
+/*
+ * The test scenario definition.
+ */
+scenario dfsm stack_scenario =
+{
+  .init     = (PtrInit)initStack,
+  .getState = (PtrGetState)stateStack,
+  .finish   = (PtrFinish)finishStack,
+  .actions  = {
+     push_scen,
+     pop_scen,
+     NULL
+  }
+};

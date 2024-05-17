@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<choice xmlns="http://unitesk.com/buncher"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://unitesk.com/buncher http://unitesk.com/buncher/groupingSchema.xsd">
+    <if>
+        <predicate>knownBugs.length > 0</predicate>
+        <constGroupName>known bugs</constGroupName>
+    </if>
+    <groupBy>
+        <function>knownBugs[ 0 ].id</function>
+        <varGroupName>funcValue</varGroupName>
+            <groupBy>
+                <function>kind</function>
+                <leaf/>
+            </groupBy>
+    </groupBy>
+
+    <if>
+        <predicate>
+               kind == POSTCONDITION_FAILED 
+            || kind == MEDIATOR_FAILED 
+            || kind == INVARIANT_FAILED 
+            || kind == SCENARIO_FUNCTION_FAILED
+        </predicate>
+        <constGroupName>
+            discrepancy between specification and implementation
+        </constGroupName>
+    </if>
+
+    <switch>
+        <function>kind</function>
+       <case>
+            <value>INVARIANT_FAILED</value>
+        </case>
+        <case>
+            <value>POSTCONDITION_FAILED</value>
+        </case>
+        <case>
+            <value>MEDIATOR_FAILED</value>
+        </case>
+ 
+        <groupBy>
+            <function>modelOperation.signature</function>
+            <varGroupName>funcValue</varGroupName>
+            <groupBy>
+                <function>
+                    <![CDATA[ getCoveredElementName( coverages.get( 0 ) ) ]]>
+                </function>
+                <varGroupName><![CDATA[ "coverage '" + coverages.get( 0 ) + "' : " + funcValue]]></varGroupName>
+                <leaf />
+            </groupBy>
+        </groupBy>
+        <case>
+            <value>SCENARIO_FUNCTION_FAILED</value>
+        </case>
+        <groupBy>
+            <function>transitionName</function>
+            <varGroupName>"scenario transition: " + funcValue</varGroupName>
+            <leaf />
+        </groupBy>
+    </switch>
+
+    <if>
+        <predicate>
+            kind != STRUCTURAL_FAILURE
+        </predicate>
+        <constGroupName>other failures</constGroupName>
+    </if>
+    <groupBy>
+        <function>kind</function>
+        <leaf/>
+    </groupBy>
+    
+    <default>
+        <constGroupName>structural failures</constGroupName>
+    </default>
+    <leaf/>
+</choice>

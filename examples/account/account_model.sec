@@ -1,0 +1,111 @@
+/* 
+ * File: account_model.sec
+ * Description: 
+ *       This file specifies a model interface of the simple account system.
+ *
+ * Copyright (c) 2003-2004 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#include "account_model.seh"
+
+
+/*
+ * The positive maximal credit value and its invariant.
+ *
+ * Maximal available value of the credit should be positive or 0.
+*/
+invariant int MaximalCredit = MAXIMUM_CREDIT;
+
+invariant (MaximalCredit) {return MaximalCredit >= 0;}
+
+
+/*
+ * The invariant of the AccountModel type.
+ *
+ * The field balance should not be less than the opposite number
+ * to maximum credit available.
+ */
+invariant (AccountModel acct) {
+  return acct.balance >= -MaximalCredit;
+}
+
+
+/*
+ * The definition of deposit_spec() specification function.
+ *
+ * This function deposits the sum to the account.
+ *
+ * The parameter acct is a pointer to an Account structure. Should be not NULL.
+ * The parameter sum is a sum to be deposited. Should be more than 0.
+ */
+specification void deposit_spec (AccountModel *acct, int sum)
+  reads   sum
+  updates balance = acct->balance
+{
+  pre { return (acct != NULL) && (sum > 0) && (balance <= INT_MAX - sum); }
+  coverage C {
+    if (balance + sum == INT_MAX)
+      return {maximum, "Maximal deposition"};
+    else if (balance > 0)
+      return { positive, "Positive balance" };
+    else if (balance < 0)
+      if (balance == -MaximalCredit)
+        return {minimum, "Minimal balance"};
+      else
+        return { negative, "Negative balance" };
+    else
+      return { zero, "Empty account" };
+  }
+  post {
+    return balance == @balance + sum;
+  }
+}
+
+
+/*
+ * The definition of withdraw_spec() specification function.
+ *
+ * This function withdraws the sum from the account.
+ *
+ * The parameter acct is a pointer to an Account structure. Should be not NULL.
+ * The parameter sum is a sum to be withdrawn. Should be more than 0.
+ *
+ * The function returns 
+ *   0   - if the sum exceeds the balance on more than MAXIMUM_CREDIT,
+ *   sum - if the sum does not exceed the balance
+ *            or exceeds it on less than MAXIMUM_CREDIT.
+ */  
+specification int withdraw_spec (AccountModel *acct, int sum)
+  reads   sum
+  updates balance = acct->balance
+{
+  pre { return (acct != NULL) && (sum > 0); }
+  coverage C {
+    if (sum == INT_MAX) return {max_withdrawal, "Maximal withdrawal"};
+    if (balance > 0)
+      if (balance < sum - MaximalCredit)
+        return {pos_too_large, "Positive balance. Too large withdrawal"};
+      else
+        return {positive_ok, "Positive balance. Successful withdrawal"};
+    else if (balance < 0)
+      if (balance <  sum - MaximalCredit)
+        return {neg_too_large, "Negative balance. Too large withdrawal"};
+      else
+        return {negative_ok, "Negative balance. Successful withdrawal"};
+    else
+      if (balance < sum - MaximalCredit)
+        return {zero_too_large, "Empty account. Too large withdrawal"};
+      else
+        return {zero_ok, "Empty account. Successful withdrawal"};
+  }
+  post {
+    if (@balance < sum - MaximalCredit)
+      return balance == @balance && withdraw_spec == 0;
+    else
+      return balance == @balance - sum && withdraw_spec == sum;
+  }
+}

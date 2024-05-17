@@ -1,0 +1,73 @@
+/* 
+ * File: stack_media.sec
+ * Description: 
+ *       This file contains definitions of mediator functions
+ *       of the stack subsystem.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#include "stack_media.seh"
+
+#include <atl/integer.h>
+
+
+/*
+ * The implementation stack, which is used as pseudo implementation state.
+ */
+stack *impl_stack;
+
+
+/*
+ * Synchronizes the model state with the implementation one.
+ */
+static void mapStateUp()
+{
+int k;
+
+  clear_List(stck);
+  for (k = impl_stack->size; k > 0; append_List(stck, create_Integer(impl_stack->elems[--k])));
+}
+
+
+/*
+ * The mediator of bool push_spec(int i) specification function.
+ *
+ * The call block states that push_spec(int i) function specifies 
+ * the behavior of push(stack*, int) function.
+ * The state block evaluates model state from implementation one
+ * after target function call.
+ */ 
+mediator push_media for specification bool push_spec(int i)
+  updates stck
+{
+  call {
+    return push(impl_stack,i);
+  }
+  state {
+    mapStateUp();
+  }
+}
+
+/*
+ * The mediator of bool pop_spec(int *item) specification function.
+ *
+ * The call block states that pop_spec(int* item) function specifies 
+ * the behavior of pop(stack*, int*) function.
+ * The state block synchronizes the model state with the implementation one.
+ */ 
+mediator pop_media for specification bool pop_spec(int* item)
+  updates stck
+  writes i = *item
+{
+  call {
+    return pop(impl_stack,item);
+  }
+  state {
+    mapStateUp();
+  }
+}

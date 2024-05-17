@@ -1,0 +1,148 @@
+/*
+ * File: pqueue_model.sec
+ * Description:
+ *       This file specifies a model interface of the queue with priorities.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#include "pqueue_model.seh"
+
+
+/*
+ * The model state of the queue with priorities.
+ *
+ * The low queue contains items with low priority.
+ * The high queue contains items with high priority.
+ */
+Queue* low;
+Queue* high;
+
+
+/*
+ * The invariant of the Item type.
+ *
+ * The item should be nonnull pointer.
+ */
+invariant(Item item)
+{
+  return item != NULL;
+}
+
+/*
+ * The invariant of the Queue type.
+ *
+ * The queue should not contain nonnull pointers.
+ */
+invariant(Queue* queue) {
+  int i;
+  for ( i = 0; i < size_List(queue); i++ )
+    if (value_VoidAst(get_List(queue, i)) == NULL)
+      return false;
+  return true;
+}
+
+/*
+ * This coverage concerns states of both
+ * high and low priority lists.
+ */
+coverage PriorityListsCoverage()
+{
+  if (size_List(high) != 0)
+    if (size_List(low) != 0)
+      return { "both non-empty" };
+    else
+      return { "low-priority empty" };
+  else
+    if (size_List(low) != 0)
+      return { "high-priority empty" };
+    else
+      return { "both empty" };
+}
+
+/*
+ * The definition of enq_spec() specification function.
+ *
+ * This function enqueues the item to the queue with low priority.
+ *
+ * The parameter item is a nonnull pointer.
+ */
+specification void enq_spec(Item item)
+     reads   item
+     reads   high
+     updates low
+{
+  pre {
+    return true;
+  }
+  coverage c1  = PriorityListsCoverage();
+  post {
+    return    (compare( @low, subList_List(low, 0, size_List(low) - 1) ) == 0)
+           && (value_VoidAst( get_List(low,size_List(low)-1) ) == item);
+  }
+}
+
+/*
+ * The definition of enqp_spec() specification function.
+ *
+ * This function enqueues the item to the queue with high priority.
+ *
+ * The parameter item is a nonnull pointer.
+ */
+specification void enqp_spec(Item item)
+     reads   item
+     updates high
+     reads   low
+{
+  pre {
+    return true;
+  }
+  coverage c1  = PriorityListsCoverage();
+  post {
+    return    (compare( @high, subList_List(high, 0, size_List(high) - 1) ) == 0)
+           && (value_VoidAst( get_List(high,size_List(high)-1) ) == item);
+  }
+}
+
+
+/*
+ * The definition of deq_spec() specification function.
+ *
+ * This function dequeues the item from the queue.
+ *
+ * The function returns
+ *     the first item enqueued into the queue with high priority
+ *         if such item is in the queue,
+ *     the first item enqueued into the queue with low priority
+ *         if such item is in the queue,
+ *     NULL
+ *         otherwise.
+ */
+specification void* deq_spec(void)
+     updates high
+     updates low
+{
+  pre {
+    return true;
+  }
+ coverage c1  = PriorityListsCoverage();
+  post {
+
+    if (size_List(@high) != 0)
+      return    (compare(subList_List(@high, 1, size_List(@high)), high) == 0)
+             && (compare(@low, low) == 0)
+             && (deq_spec == value_VoidAst(get_List(@high, 0)));
+    else if (size_List(@low) != 0)
+      return    (compare(subList_List(@low, 1, size_List(@low)), low) == 0)
+             && (compare(@high, high) == 0)
+             && (deq_spec == value_VoidAst(get_List(@low, 0)));
+    else
+      return    (compare(@low, low) == 0)
+             && (compare(@high, high) == 0)
+             && (deq_spec == NULL);
+  }
+}

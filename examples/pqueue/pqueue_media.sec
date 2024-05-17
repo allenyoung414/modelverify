@@ -1,0 +1,87 @@
+/* 
+ * File: pqueue_media.sec
+ * Description: 
+ *       This file contains definitions of mediator functions
+ *       of the queue with priorities.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#include "pqueue_media.seh"
+#include "pqueue_model.seh"
+#include "pqueue.h"
+
+#include <atl/void_ast.h>
+#include <atl/list.h>
+
+
+/*
+ * The mediator of void enq_spec(Item item) specification function.
+ *
+ * The call block states that enq_spec(Item item) function specifies 
+ * the behavior of enq(void*) function.
+ * The state block evaluates expected model state after
+ * target function call.
+ */ 
+mediator enq_media for specification void enq_spec(Item item)
+     reads   item
+     reads   high
+     updates low
+{
+  call {
+    enq(item);
+  }
+  state {
+    append_List(low, create_VoidAst(item));
+  }
+}
+
+
+/*
+ * The mediator of void enqp_spec(Item item) specification function.
+ *
+ * The call block states that enqp_spec(Item item) function specifies 
+ * the behavior of enqp(void*) function.
+ * The state block evaluates expected model state after
+ * target function call.
+ */ 
+mediator enqp_media for specification void enqp_spec(Item item)
+     reads   item
+     updates high
+     reads   low
+{
+  call {
+    enqp(item);
+  }
+  state {
+    append_List(high, create_VoidAst(item));
+  }
+}
+
+
+/*
+ * The mediator of void *deq_spec(void) specification function.
+ *
+ * The call block states that deq_spec(void) function specifies 
+ * the behavior of deq(void) function.
+ * The state block evaluates expected model state after
+ * target function call.
+ */ 
+mediator deq_media for specification void *deq_spec(void)
+     updates high
+     updates low
+{
+  call {
+    return deq();
+  }
+  state {
+    if (size_List(high))
+      remove_List(high, 0);
+    else if (size_List(low))
+      remove_List(low, 0);
+  }
+}

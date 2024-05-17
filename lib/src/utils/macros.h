@@ -1,0 +1,527 @@
+#ifndef UTILS_MACROS__H
+#define UTILS_MACROS__H
+
+/// ¬спомогательный макрос дл€ удалени€ скобок вокруг аргументов
+#define CTESK_PP_$_EXPAND(...) __VA_ARGS__
+/// ћакрос удал€ет внешние скобки в параметре x.
+#define CTESK_PP_$_UNPAREN(x) CTESK_PP_$_EXPAND x
+
+#define CTESK_PP_$_CAT(x, y) x ## y
+#define CTESK_PP_CONCAT(x, y) CTESK_PP_$_CAT(x,y)
+#define CTESK_PP_RCONCAT(x, y) CTESK_PP_$_CAT(y,x)
+
+#define CTESK_PP_$_ATTACH(M,seq) M seq
+#define CTESK_PP_CAT(x,y) CTESK_PP_$_ATTACH(x, y)
+#define CTESK_PP_RCAT(x, y) y x
+
+#define CTESK_PP_$_EXEC(x) x
+
+#define CTESK_PP_$_APPLY(M, x) M (x)
+#define CTESK_PP_$_APPLY2(M, x,y) M (x,y)
+#define CTESK_PP_$_APPLY_VA(M,...) M (__VA_ARGS__)
+
+#define CTESK_PP_APPLY(M,x) CTESK_PP_$_APPLY(M,x)
+#define CTESK_PP_APPLY2(M,x,y) CTESK_PP_$_APPLY2(M,x,y)
+#define CTESK_PP_APPLY_SEQ(M,seq) CTESK_PP_$_ATTACH(M, seq)
+
+#define CTESK_PP_PUSH_FRONT(x, seq) (x, CTESK_PP_$_UNPAREN(seq))
+
+#define CTESK_PP_$_NUMBERS 64, 63, 62, 61, 60, 59, 58, 57, 56, 55, 54, 53, 52, 51, 50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 37, 36, 35, 34, 33, 32, 31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0
+
+#define CTESK_PP_GET_64(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,_54,_55,_56,_57,_58,_59,_60,_61,_62,_63,x, ...) x
+#define CTESK_PP_GET_63(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,_54,_55,_56,_57,_58,_59,_60,_61,_62,x, ...) x
+#define CTESK_PP_GET_62(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,_54,_55,_56,_57,_58,_59,_60,_61,x, ...) x
+#define CTESK_PP_GET_61(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,_54,_55,_56,_57,_58,_59,_60,x, ...) x
+#define CTESK_PP_GET_60(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,_54,_55,_56,_57,_58,_59,x, ...) x
+
+#define CTESK_PP_GET_59(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,_54,_55,_56,_57,_58,x, ...) x
+#define CTESK_PP_GET_58(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,_54,_55,_56,_57,x, ...) x
+#define CTESK_PP_GET_57(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,_54,_55,_56,x, ...) x
+#define CTESK_PP_GET_56(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,_54,_55,x, ...) x
+#define CTESK_PP_GET_55(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,_54,x, ...) x
+#define CTESK_PP_GET_54(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,_53,x, ...) x
+#define CTESK_PP_GET_53(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,_52,x, ...) x
+#define CTESK_PP_GET_52(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,_51,x, ...) x
+#define CTESK_PP_GET_51(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,_50,x, ...) x
+#define CTESK_PP_GET_50(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,_49,x, ...) x
+
+#define CTESK_PP_GET_49(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,_48,x, ...) x
+#define CTESK_PP_GET_48(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,_47,x, ...) x
+#define CTESK_PP_GET_47(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,_46,x, ...) x
+#define CTESK_PP_GET_46(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,_45,x, ...) x
+#define CTESK_PP_GET_45(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,_44,x, ...) x
+#define CTESK_PP_GET_44(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,_43,x, ...) x
+#define CTESK_PP_GET_43(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,_42,x, ...) x
+#define CTESK_PP_GET_42(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,_41,x, ...) x
+#define CTESK_PP_GET_41(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,_40,x, ...) x
+#define CTESK_PP_GET_40(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,_39,x, ...) x
+
+#define CTESK_PP_GET_39(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,_38,x, ...) x
+#define CTESK_PP_GET_38(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,_37,x, ...) x
+#define CTESK_PP_GET_37(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,_36,x, ...) x
+#define CTESK_PP_GET_36(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,_35,x, ...) x
+#define CTESK_PP_GET_35(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,_34,x, ...) x
+#define CTESK_PP_GET_34(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,_33,x, ...) x
+#define CTESK_PP_GET_33(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,_32,x, ...) x
+#define CTESK_PP_GET_32(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,_31,x, ...) x
+#define CTESK_PP_GET_31(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,_30,x, ...) x
+#define CTESK_PP_GET_30(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,_29,x, ...) x
+
+#define CTESK_PP_GET_29(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,_28,x, ...) x
+#define CTESK_PP_GET_28(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,_27,x, ...) x
+#define CTESK_PP_GET_27(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,_26,x, ...) x
+#define CTESK_PP_GET_26(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,_25,x, ...) x
+#define CTESK_PP_GET_25(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,_24,x, ...) x
+#define CTESK_PP_GET_24(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,_23,x, ...) x
+#define CTESK_PP_GET_23(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,_22,x, ...) x
+#define CTESK_PP_GET_22(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,_21,x, ...) x
+#define CTESK_PP_GET_21(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,_20,x, ...) x
+#define CTESK_PP_GET_20(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,_19,x, ...) x
+
+#define CTESK_PP_GET_19(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,_18,x, ...) x
+#define CTESK_PP_GET_18(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,_17,x, ...) x
+#define CTESK_PP_GET_17(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,_16,x, ...) x
+#define CTESK_PP_GET_16(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,_15,x, ...) x
+#define CTESK_PP_GET_15(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,_14,x, ...) x
+#define CTESK_PP_GET_14(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,_13,x, ...) x
+#define CTESK_PP_GET_13(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,_12,x, ...) x
+#define CTESK_PP_GET_12(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,_11,x, ...) x
+#define CTESK_PP_GET_11(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,_10,x, ...) x
+#define CTESK_PP_GET_10(_0,_1,_2,_3,_4,_5,_6,_7,_8,_9,x, ...) x
+
+#define CTESK_PP_GET_9(_0,_1,_2,_3,_4,_5,_6,_7,_8,x, ...) x
+#define CTESK_PP_GET_8(_0,_1,_2,_3,_4,_5,_6,_7,x, ...) x
+#define CTESK_PP_GET_7(_0,_1,_2,_3,_4,_5,_6,x, ...) x
+#define CTESK_PP_GET_6(_0,_1,_2,_3,_4,_5,x, ...) x
+#define CTESK_PP_GET_5(_0,_1,_2,_3,_4,x, ...) x
+#define CTESK_PP_GET_4(_0,_1,_2,_3,x, ...) x
+#define CTESK_PP_GET_3(_0,_1,_2,x, ...) x
+#define CTESK_PP_GET_2(_0,_1,x, ...) x
+#define CTESK_PP_GET_1(_0,x, ...) x
+#define CTESK_PP_GET_0(x, ...) x
+
+#define CTESK_PP_GET_64_SEQ(seq) CTESK_PP_GET_64 seq
+#define CTESK_PP_GET_63_SEQ(seq) CTESK_PP_GET_63 seq
+#define CTESK_PP_GET_62_SEQ(seq) CTESK_PP_GET_62 seq
+#define CTESK_PP_GET_61_SEQ(seq) CTESK_PP_GET_61 seq
+#define CTESK_PP_GET_60_SEQ(seq) CTESK_PP_GET_60 seq
+#define CTESK_PP_GET_59_SEQ(seq) CTESK_PP_GET_59 seq
+#define CTESK_PP_GET_58_SEQ(seq) CTESK_PP_GET_58 seq
+#define CTESK_PP_GET_57_SEQ(seq) CTESK_PP_GET_57 seq
+#define CTESK_PP_GET_56_SEQ(seq) CTESK_PP_GET_56 seq
+#define CTESK_PP_GET_55_SEQ(seq) CTESK_PP_GET_55 seq
+#define CTESK_PP_GET_54_SEQ(seq) CTESK_PP_GET_54 seq
+#define CTESK_PP_GET_53_SEQ(seq) CTESK_PP_GET_53 seq
+#define CTESK_PP_GET_52_SEQ(seq) CTESK_PP_GET_52 seq
+#define CTESK_PP_GET_51_SEQ(seq) CTESK_PP_GET_51 seq
+#define CTESK_PP_GET_50_SEQ(seq) CTESK_PP_GET_50 seq
+#define CTESK_PP_GET_49_SEQ(seq) CTESK_PP_GET_49 seq
+#define CTESK_PP_GET_48_SEQ(seq) CTESK_PP_GET_48 seq
+#define CTESK_PP_GET_47_SEQ(seq) CTESK_PP_GET_47 seq
+#define CTESK_PP_GET_46_SEQ(seq) CTESK_PP_GET_46 seq
+#define CTESK_PP_GET_45_SEQ(seq) CTESK_PP_GET_45 seq
+#define CTESK_PP_GET_44_SEQ(seq) CTESK_PP_GET_44 seq
+#define CTESK_PP_GET_43_SEQ(seq) CTESK_PP_GET_43 seq
+#define CTESK_PP_GET_42_SEQ(seq) CTESK_PP_GET_42 seq
+#define CTESK_PP_GET_41_SEQ(seq) CTESK_PP_GET_41 seq
+#define CTESK_PP_GET_40_SEQ(seq) CTESK_PP_GET_40 seq
+#define CTESK_PP_GET_39_SEQ(seq) CTESK_PP_GET_39 seq
+#define CTESK_PP_GET_38_SEQ(seq) CTESK_PP_GET_38 seq
+#define CTESK_PP_GET_37_SEQ(seq) CTESK_PP_GET_37 seq
+#define CTESK_PP_GET_36_SEQ(seq) CTESK_PP_GET_36 seq
+#define CTESK_PP_GET_35_SEQ(seq) CTESK_PP_GET_35 seq
+#define CTESK_PP_GET_34_SEQ(seq) CTESK_PP_GET_34 seq
+#define CTESK_PP_GET_33_SEQ(seq) CTESK_PP_GET_33 seq
+#define CTESK_PP_GET_32_SEQ(seq) CTESK_PP_GET_32 seq
+#define CTESK_PP_GET_31_SEQ(seq) CTESK_PP_GET_31 seq
+#define CTESK_PP_GET_30_SEQ(seq) CTESK_PP_GET_30 seq
+#define CTESK_PP_GET_29_SEQ(seq) CTESK_PP_GET_29 seq
+#define CTESK_PP_GET_28_SEQ(seq) CTESK_PP_GET_28 seq
+#define CTESK_PP_GET_27_SEQ(seq) CTESK_PP_GET_27 seq
+#define CTESK_PP_GET_26_SEQ(seq) CTESK_PP_GET_26 seq
+#define CTESK_PP_GET_25_SEQ(seq) CTESK_PP_GET_25 seq
+#define CTESK_PP_GET_24_SEQ(seq) CTESK_PP_GET_24 seq
+#define CTESK_PP_GET_23_SEQ(seq) CTESK_PP_GET_23 seq
+#define CTESK_PP_GET_22_SEQ(seq) CTESK_PP_GET_22 seq
+#define CTESK_PP_GET_21_SEQ(seq) CTESK_PP_GET_21 seq
+#define CTESK_PP_GET_20_SEQ(seq) CTESK_PP_GET_20 seq
+#define CTESK_PP_GET_19_SEQ(seq) CTESK_PP_GET_19 seq
+#define CTESK_PP_GET_18_SEQ(seq) CTESK_PP_GET_18 seq
+#define CTESK_PP_GET_17_SEQ(seq) CTESK_PP_GET_17 seq
+#define CTESK_PP_GET_16_SEQ(seq) CTESK_PP_GET_16 seq
+#define CTESK_PP_GET_15_SEQ(seq) CTESK_PP_GET_15 seq
+#define CTESK_PP_GET_14_SEQ(seq) CTESK_PP_GET_14 seq
+#define CTESK_PP_GET_13_SEQ(seq) CTESK_PP_GET_13 seq
+#define CTESK_PP_GET_12_SEQ(seq) CTESK_PP_GET_12 seq
+#define CTESK_PP_GET_11_SEQ(seq) CTESK_PP_GET_11 seq
+#define CTESK_PP_GET_10_SEQ(seq) CTESK_PP_GET_10 seq
+#define CTESK_PP_GET_9_SEQ(seq) CTESK_PP_GET_9 seq
+#define CTESK_PP_GET_8_SEQ(seq) CTESK_PP_GET_8 seq
+#define CTESK_PP_GET_7_SEQ(seq) CTESK_PP_GET_7 seq
+#define CTESK_PP_GET_6_SEQ(seq) CTESK_PP_GET_6 seq
+#define CTESK_PP_GET_5_SEQ(seq) CTESK_PP_GET_5 seq
+#define CTESK_PP_GET_4_SEQ(seq) CTESK_PP_GET_4 seq
+#define CTESK_PP_GET_3_SEQ(seq) CTESK_PP_GET_3 seq
+#define CTESK_PP_GET_2_SEQ(seq) CTESK_PP_GET_2 seq
+#define CTESK_PP_GET_1_SEQ(seq) CTESK_PP_GET_1 seq
+#define CTESK_PP_GET_0_SEQ(seq) CTESK_PP_GET_0 seq
+
+#define CTESK_PP_LENGTH(...) CTESK_PP_GET_64_SEQ ((__VA_ARGS__, CTESK_PP_$_NUMBERS))
+#define CTESK_PP_LENGTH_SEQ(seq) CTESK_PP_LENGTH(CTESK_PP_$_UNPAREN(seq))
+
+#define CTESK_PP_CAR_(x,...) x
+#define CTESK_PP_CAR(seq) CTESK_PP_CAR_ seq
+#define CTESK_PP_CDR_(x,...) (__VA_ARGS__)
+#define CTESK_PP_CDR(seq) CTESK_PP_CDR_ seq
+#define CTESK_PP_CADR(seq) CTESK_PP_CAR(CTESK_PP_CDR(seq))
+
+
+#define CTESK_PP_FOR_EACH_63(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_62(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_62(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_61(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_61(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_60(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_60(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_59(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_59(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_58(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_58(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_57(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_57(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_56(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_56(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_55(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_55(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_54(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_54(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_53(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_53(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_52(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_52(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_51(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_51(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_50(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_50(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_49(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_49(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_48(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_48(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_47(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_47(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_46(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_46(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_45(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_45(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_44(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_44(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_43(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_43(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_42(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_42(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_41(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_41(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_40(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_40(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_39(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_39(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_38(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_38(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_37(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_37(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_36(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_36(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_35(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_35(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_34(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_34(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_33(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_33(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_32(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_32(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_31(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_31(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_30(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_30(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_29(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_29(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_28(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_28(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_27(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_27(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_26(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_26(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_25(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_25(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_24(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_24(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_23(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_23(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_22(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_22(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_21(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_21(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_20(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_20(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_19(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_19(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_18(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_18(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_17(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_17(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_16(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_16(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_15(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_15(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_14(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_14(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_13(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_13(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_12(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_12(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_11(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_11(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_10(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_10(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_9(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_9(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_8(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_8(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_7(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_7(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_6(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_6(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_5(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_5(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_4(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_4(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_3(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_3(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_2(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_2(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg) CTESK_PP_FOR_EACH_1(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_FOR_EACH_1(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg)
+
+// ’ак дл€ нормальной работы в Visual Studio - необходимо, чтобы вычисление N закончилось до конкатенации
+#define CTESK_PP_$_FOR_EACH(N,F,_arg,seq) CTESK_PP_CONCAT(CTESK_PP_FOR_EACH_ , N) (F,_arg,seq)
+#define CTESK_PP_FOR_EACH(F,_arg,seq) CTESK_PP_$_FOR_EACH(CTESK_PP_LENGTH_SEQ(seq),F,_arg,seq)
+
+#define CTESK_PP_TRANSFORM_63(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_62(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_62(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_61(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_61(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_60(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_60(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_59(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_59(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_58(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_58(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_57(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_57(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_56(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_56(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_55(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_55(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_54(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_54(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_53(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_53(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_52(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_52(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_51(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_51(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_50(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_50(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_49(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_49(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_48(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_48(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_47(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_47(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_46(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_46(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_45(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_45(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_44(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_44(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_43(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_43(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_42(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_42(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_41(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_41(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_40(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_40(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_39(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_39(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_38(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_38(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_37(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_37(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_36(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_36(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_35(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_35(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_34(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_34(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_33(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_33(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_32(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_32(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_31(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_31(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_30(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_30(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_29(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_29(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_28(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_28(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_27(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_27(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_26(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_26(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_25(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_25(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_24(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_24(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_23(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_23(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_22(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_22(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_21(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_21(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_20(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_20(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_19(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_19(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_18(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_18(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_17(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_17(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_16(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_16(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_15(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_15(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_14(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_14(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_13(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_13(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_12(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_12(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_11(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_11(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_10(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_10(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_9(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_9(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_8(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_8(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_7(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_7(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_6(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_6(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_5(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_5(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_4(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_4(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_3(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_3(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_2(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_2(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg), CTESK_PP_TRANSFORM_1(F,_arg,CTESK_PP_CDR(seq))
+#define CTESK_PP_TRANSFORM_1(F,_arg,seq) CTESK_PP_APPLY2(F,CTESK_PP_CAR(seq),_arg)
+
+// ’ак дл€ нормальной работы в Visual Studio - необходимо, чтобы вычисление N закончилось до конкатенации
+#define CTESK_PP_$_TRANSFORM(N,F,_arg,seq) CTESK_PP_CONCAT(CTESK_PP_TRANSFORM_,N) (F,_arg,seq)
+#define CTESK_PP_TRANSFORM(F,_arg,seq) ( CTESK_PP_$_TRANSFORM(CTESK_PP_LENGTH_SEQ(seq),F,_arg,seq) )
+
+//
+// ѕреобразование последовательности в текст, разделенный точками-с-зап€той
+#define CTESK_PP_JOIN_SEMICOLON_63(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_62(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_62(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_61(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_61(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_60(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_60(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_59(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_59(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_58(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_58(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_57(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_57(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_56(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_56(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_55(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_55(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_54(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_54(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_53(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_53(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_52(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_52(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_51(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_51(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_50(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_50(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_49(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_49(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_48(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_48(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_47(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_47(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_46(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_46(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_45(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_45(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_44(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_44(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_43(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_43(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_42(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_42(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_41(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_41(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_40(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_40(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_39(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_39(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_38(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_38(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_37(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_37(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_36(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_36(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_35(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_35(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_34(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_34(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_33(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_33(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_32(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_32(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_31(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_31(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_30(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_30(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_29(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_29(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_28(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_28(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_27(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_27(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_26(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_26(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_25(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_25(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_24(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_24(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_23(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_23(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_22(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_22(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_21(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_21(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_20(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_20(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_19(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_19(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_18(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_18(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_17(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_17(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_16(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_16(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_15(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_15(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_14(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_14(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_13(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_13(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_12(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_12(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_11(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_11(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_10(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_10(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_9(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_9(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_8(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_8(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_7(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_7(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_6(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_6(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_5(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_5(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_4(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_4(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_3(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_3(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_2(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_2(seq) CTESK_PP_CAR(seq);\
+     CTESK_PP_JOIN_SEMICOLON_1(CTESK_PP_CDR(seq))
+#define CTESK_PP_JOIN_SEMICOLON_1(seq) CTESK_PP_$_UNPAREN(seq);\
+
+
+// ’ак дл€ нормальной работы в Visual Studio - необходимо, чтобы вычисление N закончилось до конкатенации
+#define CTESK_PP_$_JOIN_SEMICOLON(N,seq) CTESK_PP_CONCAT(CTESK_PP_JOIN_SEMICOLON_,N) (seq)
+#define CTESK_PP_JOIN_SEMICOLON(seq) CTESK_PP_$_JOIN_SEMICOLON(CTESK_PP_LENGTH_SEQ(seq),seq)
+
+
+//
+// √енераци€ списков нумерованных элементов
+//
+#define CTESK_PP_DIGITS_63 CTESK_PP_DIGITS_62,63
+#define CTESK_PP_DIGITS_62 CTESK_PP_DIGITS_61,62
+#define CTESK_PP_DIGITS_61 CTESK_PP_DIGITS_60,61
+#define CTESK_PP_DIGITS_60 CTESK_PP_DIGITS_59,60
+#define CTESK_PP_DIGITS_59 CTESK_PP_DIGITS_58,59
+#define CTESK_PP_DIGITS_58 CTESK_PP_DIGITS_57,58
+#define CTESK_PP_DIGITS_57 CTESK_PP_DIGITS_56,57
+#define CTESK_PP_DIGITS_56 CTESK_PP_DIGITS_55,56
+#define CTESK_PP_DIGITS_55 CTESK_PP_DIGITS_54,55
+#define CTESK_PP_DIGITS_54 CTESK_PP_DIGITS_53,54
+#define CTESK_PP_DIGITS_53 CTESK_PP_DIGITS_52,53
+#define CTESK_PP_DIGITS_52 CTESK_PP_DIGITS_51,52
+#define CTESK_PP_DIGITS_51 CTESK_PP_DIGITS_50,51
+#define CTESK_PP_DIGITS_50 CTESK_PP_DIGITS_49,50
+#define CTESK_PP_DIGITS_49 CTESK_PP_DIGITS_48,49
+#define CTESK_PP_DIGITS_48 CTESK_PP_DIGITS_47,48
+#define CTESK_PP_DIGITS_47 CTESK_PP_DIGITS_46,47
+#define CTESK_PP_DIGITS_46 CTESK_PP_DIGITS_45,46
+#define CTESK_PP_DIGITS_45 CTESK_PP_DIGITS_44,45
+#define CTESK_PP_DIGITS_44 CTESK_PP_DIGITS_43,44
+#define CTESK_PP_DIGITS_43 CTESK_PP_DIGITS_42,43
+#define CTESK_PP_DIGITS_42 CTESK_PP_DIGITS_41,42
+#define CTESK_PP_DIGITS_41 CTESK_PP_DIGITS_40,41
+#define CTESK_PP_DIGITS_40 CTESK_PP_DIGITS_39,40
+#define CTESK_PP_DIGITS_39 CTESK_PP_DIGITS_38,39
+#define CTESK_PP_DIGITS_38 CTESK_PP_DIGITS_37,38
+#define CTESK_PP_DIGITS_37 CTESK_PP_DIGITS_36,37
+#define CTESK_PP_DIGITS_36 CTESK_PP_DIGITS_35,36
+#define CTESK_PP_DIGITS_35 CTESK_PP_DIGITS_34,35
+#define CTESK_PP_DIGITS_34 CTESK_PP_DIGITS_33,34
+#define CTESK_PP_DIGITS_33 CTESK_PP_DIGITS_32,33
+#define CTESK_PP_DIGITS_32 CTESK_PP_DIGITS_31,32
+#define CTESK_PP_DIGITS_31 CTESK_PP_DIGITS_30,31
+#define CTESK_PP_DIGITS_30 CTESK_PP_DIGITS_29,30
+#define CTESK_PP_DIGITS_29 CTESK_PP_DIGITS_28,29
+#define CTESK_PP_DIGITS_28 CTESK_PP_DIGITS_27,28
+#define CTESK_PP_DIGITS_27 CTESK_PP_DIGITS_26,27
+#define CTESK_PP_DIGITS_26 CTESK_PP_DIGITS_25,26
+#define CTESK_PP_DIGITS_25 CTESK_PP_DIGITS_24,25
+#define CTESK_PP_DIGITS_24 CTESK_PP_DIGITS_23,24
+#define CTESK_PP_DIGITS_23 CTESK_PP_DIGITS_22,23
+#define CTESK_PP_DIGITS_22 CTESK_PP_DIGITS_21,22
+#define CTESK_PP_DIGITS_21 CTESK_PP_DIGITS_20,21
+#define CTESK_PP_DIGITS_20 CTESK_PP_DIGITS_19,20
+#define CTESK_PP_DIGITS_19 CTESK_PP_DIGITS_18,19
+#define CTESK_PP_DIGITS_18 CTESK_PP_DIGITS_17,18
+#define CTESK_PP_DIGITS_17 CTESK_PP_DIGITS_16,17
+#define CTESK_PP_DIGITS_16 CTESK_PP_DIGITS_15,16
+#define CTESK_PP_DIGITS_15 CTESK_PP_DIGITS_14,15
+#define CTESK_PP_DIGITS_14 CTESK_PP_DIGITS_13,14
+#define CTESK_PP_DIGITS_13 CTESK_PP_DIGITS_12,13
+#define CTESK_PP_DIGITS_12 CTESK_PP_DIGITS_11,12
+#define CTESK_PP_DIGITS_11 CTESK_PP_DIGITS_10,11
+#define CTESK_PP_DIGITS_10 CTESK_PP_DIGITS_9,10
+#define CTESK_PP_DIGITS_9 CTESK_PP_DIGITS_8,9
+#define CTESK_PP_DIGITS_8 CTESK_PP_DIGITS_7,8
+#define CTESK_PP_DIGITS_7 CTESK_PP_DIGITS_6,7
+#define CTESK_PP_DIGITS_6 CTESK_PP_DIGITS_5,6
+#define CTESK_PP_DIGITS_5 CTESK_PP_DIGITS_4,5
+#define CTESK_PP_DIGITS_4 CTESK_PP_DIGITS_3,4
+#define CTESK_PP_DIGITS_3 CTESK_PP_DIGITS_2,3
+#define CTESK_PP_DIGITS_2 CTESK_PP_DIGITS_1,2
+#define CTESK_PP_DIGITS_1 1
+
+#define CTESK_PP_$_ENUMERATE(F, _prefix, seq) CTESK_PP_$_UNPAREN( CTESK_PP_TRANSFORM(F,_prefix,seq) )
+#define CTESK_PP_ENUMERATE(N,_prefix) CTESK_PP_$_ENUMERATE(CTESK_PP_RCONCAT, _prefix, (CTESK_PP_CONCAT(CTESK_PP_DIGITS_, N)))
+
+#define CTESK_PP_$_WRAP(x,_prefix,_suffix) _prefix ## x _suffix
+#define CTESK_PP_WRAP(x,_data) CTESK_PP_APPLY_SEQ(CTESK_PP_$_WRAP, CTESK_PP_PUSH_FRONT( x, _data ))
+#define CTESK_PP_ENUMERATE2(N,_prefix,_suffix) CTESK_PP_$_ENUMERATE(CTESK_PP_WRAP, (_prefix, _suffix), (CTESK_PP_DIGITS_ ## N))
+
+#define CTESK_PP_$_CAT_ARGS(x,_prefix,_suffix) _prefix ## x _suffix ## x
+#define CTESK_PP_CONCAT_ARGS(x,_data) CTESK_PP_APPLY_SEQ(CTESK_PP_$_CAT_ARGS, CTESK_PP_PUSH_FRONT( x,_data) )
+#define CTESK_PP_ENUMERATE_ARGS(N,_prefix1,_prefix2) CTESK_PP_$_ENUMERATE(CTESK_PP_CONCAT_ARGS, (_prefix1, _prefix2), (CTESK_PP_DIGITS_ ## N))
+
+#endif // UTILS_MACROS__H

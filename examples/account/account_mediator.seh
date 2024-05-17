@@ -1,0 +1,31 @@
+/* 
+ * File: account_mediator.seh
+ * Description: 
+ *       This file contains a declaration of mediator functions
+ *       of the simple account system.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+#ifndef __ACCOUNT_MEDIATOR_H__
+#define __ACCOUNT_MEDIATOR_H__
+
+
+
+#include "account_model.seh"
+
+mediator deposit_media for specification void deposit_spec (AccountModel *acct, int sum)
+  reads   sum
+  updates acct->balance
+;
+
+mediator withdraw_media for specification int withdraw_spec (AccountModel *acct, int sum)
+  reads   sum
+  updates acct->balance
+;
+
+#endif /* __ACCOUNT_MEDIATOR__ */
+

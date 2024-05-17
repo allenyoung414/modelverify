@@ -1,0 +1,23 @@
+/* 
+ * File: stack_scenario.seh
+ * Description: 
+ *       This file contains a declaration of a test scenario 
+ *       of the stack subsystem.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#ifndef __STACK_SCENARIO_SEH__
+#define __STACK_SCENARIO_SEH__
+
+
+/*
+ * The declaration of 'stack_scenario' test scenario.
+ */ 
+scenario dfsm stack_scenario;
+
+#endif /* __STACK_SCENARIO_SEH__ */

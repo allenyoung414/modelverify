@@ -1,0 +1,66 @@
+/* 
+ * File: stack_model.seh
+ * Description: 
+ *       This file declares a model interface of the stack subsystem.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#ifndef __STACK_MODEL_SEH__
+#define __STACK_MODEL_SEH__
+
+/*
+ * The stack model describes functionality of a stack of integers.
+ * The push and pop operations are specified only.
+ * Capacity of the stack is fixed.
+ */
+
+#include <atl/list.h>
+
+
+/*
+ * Capacity of the stack, which is used for modeling.
+ */
+#define STACK_SIZE 10
+
+
+/*
+ * The stack is modeled by the stck global variable.
+ * The stck variable has invariant.
+ * List is library specifiction type.
+ */
+extern invariant List* stck;
+
+
+/*
+ * The declaration of push_spec() specification function.
+ * 
+ * The function pushes the integer into the stack.
+ *
+ * The function returns false if stack is full and true - otherwise.
+ */
+specification bool push_spec(int i)
+  updates stck
+;
+
+/*
+ * The declaration of pop_spec() specification function.
+ * 
+ * The function pops the element from the stack and writes it by item pointer 
+ * if the stack is not empty.
+ *
+ * The item parameter should be not NULL.
+ *
+ * The function returns false if stack is empty and true - otherwise.
+ */  
+specification bool pop_spec(int* item)
+  updates stck
+  writes i = *item
+;
+
+
+#endif /* __STACK_MODEL_SEH__ */

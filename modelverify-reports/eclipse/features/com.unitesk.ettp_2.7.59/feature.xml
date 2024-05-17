@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.unitesk.ettp"
+      label="%label"
+      version="2.7.59"
+      provider-name="%provider">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license>
+      %license
+   </license>
+
+   <plugin
+         id="com.unitesk.ettp"
+         download-size="0"
+         install-size="0"
+         version="2.7.59"/>
+</feature>

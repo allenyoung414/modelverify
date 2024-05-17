@@ -1,0 +1,155 @@
+/* 
+ * File: pqueue_scenario.sec
+ * Description: 
+ *       This file contains a definition of a test scenario 
+ *       of the queue with priorities.
+ *
+ * Copyright (c) 2003 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#include "pqueue_scenario.seh"
+#include "pqueue_model.seh"
+#include "pqueue_media.seh"
+
+#include <atl/integer.h>
+#include <atl/void_ast.h>
+
+#include <utils/define.h>
+#include <string.h>
+#include <stdlib.h>
+#include <utils/undef.h>
+
+#define default_queue_size 5/*10*/
+#define default_items_num 1
+
+static char par_name_queue_size[] = "queue_size";
+static char par_name_items_num[] = "items_num";
+
+static int queue_size = default_queue_size;
+static int items_num = default_items_num;
+
+/*
+ * The auxiliary array of items.
+ */ 
+static Item* items;
+
+/*
+ * The initialization function of the test scenario.
+ *
+ * It processes parameters, initializes scenario state 
+ * and sets a mediator for each specification function
+ * tested by the scenario.
+ */
+static bool initPQueue(int argc, char **argv) {
+  
+  int i = 1;
+
+  while (i < argc - 1) {
+    if      (!strcmp(argv[i], par_name_queue_size))
+      { queue_size = atoi(argv[i+1]); i+= 2; }
+    else if (!strcmp(argv[i], par_name_items_num))
+      { items_num = atoi(argv[i+1]); i+= 2; }
+    else
+      i++;
+  }
+
+  if (queue_size <= 0)
+   {
+    printf("Error: queue_size (%d) should be positive", queue_size);
+    return false;
+   }
+  if (items_num <= 0)
+   {
+    printf("Error: items_num (%d) should be positive", items_num);
+    return false;
+   }
+  
+  items = calloc(items_num, sizeof(Item));
+  for (i = 0; i < items_num; items[i++] = malloc(sizeof(Item)));
+
+  low = (Queue*)create_List(&type_VoidAst);
+  high = (Queue*)create_List(&type_VoidAst);
+
+  set_mediator_enq_spec(enq_media);
+  set_mediator_enqp_spec(enqp_media);
+  set_mediator_deq_spec(deq_media);
+
+  return true;
+}
+
+/*
+ * The finalization function of the test scenario.
+ */ 
+static void finishPQueue() {
+  int i;
+
+  high = NULL;
+  low = NULL;
+
+  for (i = 0; i < items_num; free(items[i++]));
+  free(items);
+}
+
+/*
+ * Declaration of the IntPair type.
+ */
+specification typedef struct {
+  int h;
+  int l;
+} IntPair = {};
+
+IntPair* create_IntPair( int h, int l ) {
+  return create(&type_IntPair, h, l);
+}
+
+/*
+ * The function that builds a state of the test scenario.
+ */
+static IntPair* statePQueue() {
+  return create_IntPair(size_List(high), size_List(low));
+}
+
+/*
+ * The scenario function that iterates parameters of enq_spec() function.
+ */
+scenario bool enq_scen() {
+  iterate(int i=0; i<queue_size; i++; size_List(low) < queue_size)
+    enq_spec(create_Integer(i));
+  return true;
+}
+
+/*
+ * The scenario function that iterates parameters of enqp_spec() function.
+ */
+scenario bool enqp_scen() {
+  iterate(int i=0; i<queue_size; i++; size_List(high) < queue_size)
+    enqp_spec(create_Integer(i));
+  return true;
+}
+
+/*
+ * The scenario function that iterates parameters of deq_spec() function.
+ */
+scenario bool deq_scen() {
+  deq_spec();
+  return true;
+}
+
+/*
+ * The test scenario definition.
+ */
+scenario dfsm pqueue_scenario = {
+  .init = (PtrInit)initPQueue,
+  .getState = (PtrGetState)statePQueue,
+  .finish = (PtrFinish)finishPQueue,
+  .actions = {
+    enq_scen,
+    enqp_scen,
+    deq_scen,
+    NULL
+  }
+};

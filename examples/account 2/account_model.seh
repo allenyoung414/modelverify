@@ -1,0 +1,82 @@
+/* 
+ * File: account_model.seh
+ * Description: 
+ *       This file declares a model interface of the simple account system.
+ *
+ * Copyright (c) 2003-2004 ISP RAS.
+ * B.Communisticheskaya,25, Moscow, Russia.
+ * All rights reserved.
+ *
+ */
+
+
+#ifndef __ACCOUNT_MODEL_H__
+#define __ACCOUNT_MODEL_H__
+
+/*
+ * The account model describes functionality of a simple account
+ * that can store an integer value of balance in thousands dollars.
+ * The account described supports credits not greater than some fixed value.
+ */
+
+
+/*
+ * The specification uses INT_MAX constant
+ */
+#include "limits.h"
+
+/*
+ * The specification uses implementation data model.
+ */
+#include "account.h"
+
+
+/*
+ * A positive maximal credit value.
+ */
+extern invariant int MaximalCredit;
+
+
+/*
+ * The definition of the Account subtype that contains a correct balance value.
+ *
+ * The field balance should not be less than the opposite number
+ * to maximum credit available.
+ */
+invariant typedef Account AccountModel;
+
+
+/*
+ * The declaration of deposit_spec() specification function.
+ *
+ * This function deposits the sum to the account.
+ *
+ * The parameter acct is a pointer to an Account structure. Should be not NULL.
+ * The parameter sum is a sum to be deposited. Should be more than 0.
+ */
+specification void deposit_spec (AccountModel *acct, int sum)
+  reads   sum
+  updates acct->balance
+;
+
+
+/*
+ * The declaration of withdraw_spec() specification function.
+ *
+ * This function withdraws the sum from the account.
+ *
+ * The parameter acct is a pointer to an Account structure. Should be not NULL.
+ * The parameter sum is a sum to be withdrawn. Should be more than 0.
+ *
+ * The function returns 
+ *   0   - if the sum exceeds the balance on more than MAXIMUM_CREDIT,
+ *   sum - if the sum does not exceed the balance
+ *            or exceeds it on less than MAXIMUM_CREDIT.
+ */  
+specification int withdraw_spec (AccountModel *acct, int sum)
+  reads   sum
+  updates acct->balance
+;
+
+
+#endif /* __ACCOUNT_MODEL__ */
